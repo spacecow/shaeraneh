@@ -6,5 +6,10 @@ describe "Letters" do
       visit letters_path
       page.should have_title("Letters")
     end
+
+    it "list letters" do
+      Factory(:letter,:name=>'a')
+      visit letters_path
+    end
   end
 end
