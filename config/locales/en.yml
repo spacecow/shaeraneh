@@ -1,1 +1,3 @@
 en:
+  labels:
+    new: "New %{o}"

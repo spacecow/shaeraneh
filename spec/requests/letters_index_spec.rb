@@ -10,6 +10,7 @@ describe "Letters" do
     it "list letters" do
       Factory(:letter,:name=>'a')
       visit letters_path
+      tablemap.should eq [["a"]]
     end
   end
 end

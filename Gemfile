@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'execjs'
 gem 'therubyracer'
 gem 'jquery-rails'
+gem 'formtastic'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

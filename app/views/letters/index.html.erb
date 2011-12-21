@@ -1,1 +1,9 @@
 <%= title pt(:letter) %>
+
+<table>
+  <% @letters.each do |letter| %>
+  <tr>
+    <td><%= letter.name %></td>
+  </tr>
+  <% end %>
+</table>
