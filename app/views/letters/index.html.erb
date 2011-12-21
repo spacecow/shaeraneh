@@ -1,6 +1,9 @@
 <%= title pt(:letter) %>
 
 <table>
+  <tr>
+    <th><%= sortable 'name' %></th>
+  </tr>
   <% @letters.each do |letter| %>
   <tr>
     <td><%= letter.name %></td>
