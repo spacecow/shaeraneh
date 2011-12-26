@@ -12,6 +12,8 @@
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 
+<%= link_to pt(:poem), poems_path %>
+
 <%= yield %>
 
 </body>
