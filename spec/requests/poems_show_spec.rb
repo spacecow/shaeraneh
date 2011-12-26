@@ -7,7 +7,8 @@ describe "Poems" do
       poem.verses << create_verse("alpha")
       poem.verses << create_verse("beta")
       visit poem_path(poem)
-      p li(0)
+      li(0).should have_content("alpha")
+      li(1).should have_content("beta")
     end
   end
 end
