@@ -1,0 +1,6 @@
+<%= title new(:poem) %>
+
+<%= semantic_form_for @poem do |f| %>
+  <%= f.input :content, :as => :text %>
+  <%= f.submit %>
+<% end %>

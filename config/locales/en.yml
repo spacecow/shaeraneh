@@ -1,3 +1,9 @@
 en:
+  poem: "Poem"
+  verse: "Verse"
+
   labels:
     new: "New %{o}"
+
+  successes:
+    created_with: "Successfully created %{o} with %{no} %{o2}."

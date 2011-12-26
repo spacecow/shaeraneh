@@ -1,2 +1,5 @@
-Factory.define :letter do |f|
+Factory.define :poem do |f|
+end
+
+Factory.define :verse do |f|
 end

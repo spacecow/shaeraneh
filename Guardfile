@@ -4,6 +4,7 @@
 guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
   watch('config/environment.rb')
+  watch('config/routes.rb')
   watch(%r{^config/environments/.+\.rb$})
   watch(%r{^config/initializers/.+\.rb$})
   watch('Gemfile')
@@ -12,6 +13,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('test/test_helper.rb')
   watch(%r{^spec/support/.+\.rb$})
   watch('config/locales/en.yml')
+  watch('spec/factories.rb')
 end
 
 guard 'rspec', :version => 2, :cli => "--format nested --drb" do

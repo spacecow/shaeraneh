@@ -1,0 +1,16 @@
+<%= title pt(:poem) %>
+
+<% @poemgroups.each do |letter,group| %>
+<table>
+  <tr>
+    <th><%= letter %></th>
+  </tr>
+  <% group.each do |poem| %>
+    <tr>
+      <td><%= link_to poem.first_verse, poem %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>
+
+<%= link_to new(:poem), new_poem_path %>

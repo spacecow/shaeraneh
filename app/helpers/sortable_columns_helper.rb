@@ -1,1 +1,0 @@
-/home/johan/apps/basiq/app/helper/sortable_columns_helper.rb
