@@ -29,4 +29,9 @@ class PoemsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    Poem.find(params[:id]).destroy
+    redirect_to poems_path, :notice => deleted(:poem)
+  end
 end

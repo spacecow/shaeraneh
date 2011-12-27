@@ -1,5 +1,5 @@
 class Poem < ActiveRecord::Base
-  has_many :verses, :after_add => :add_first_verse_content, :after_remove => :remove_first_verse_content
+  has_many :verses, :after_add => :add_first_verse_content, :after_remove => :remove_first_verse_content, :dependent => :destroy
 
   attr_accessible :content
   attr_accessor :content

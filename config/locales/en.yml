@@ -1,9 +1,14 @@
 en:
+  del: "Del"
   poem: "Poem"
   verse: "Verse"
 
   labels:
     new: "New %{o}"
 
+  messages:
+    sure?: "Are you sure?"
+
   successes:
     created_with: "Successfully created %{o} with %{no} %{o2}."
+    deleted: "Successfully deleted %{o}."
