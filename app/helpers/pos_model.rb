@@ -1,0 +1,1 @@
+/home/johan/apps/basiq/app/helper/pos_model.rb

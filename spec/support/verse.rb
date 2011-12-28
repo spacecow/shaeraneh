@@ -1,1 +1,4 @@
-def create_verse(s); Factory(:verse,:content=>s) end
+def create_verse(s,i=nil)
+  i = Verse.count if i.nil?
+  Factory(:verse,:content=>s,:pos=>i) 
+end

@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 class Poem < ActiveRecord::Base
+  include PosModel
+
   has_many :verses, :after_add => :add_first_verse_content, :after_remove => :remove_first_verse_content, :dependent => :destroy
   accepts_nested_attributes_for :verses
   attr_accessible :content,:verses_attributes
   attr_accessor :content
   
   def content=(s)
-    s.split("\r\n").map{|e| e.split("\t\t")}.flatten.each do |verse|
-      verses << Verse.create!(:content=>verse.strip)
+    s.split("\r\n").map{|e| e.split("\t\t")}.flatten.each_with_index do |verse,i|
+      verses << Verse.create!(:content=>verse.strip,:pos=>i)
     end
   end
 
@@ -24,6 +26,8 @@ class Poem < ActiveRecord::Base
     def add_first_verse_content(verse)
       update_attribute(:first_verse,verse.content) if first_verse.blank?
     end
+
+    def children; verses end
 
     def remove_first_verse_content(verse)
       if verses.empty?

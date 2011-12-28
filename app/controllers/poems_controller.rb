@@ -1,6 +1,7 @@
 class PoemsController < ApplicationController
   def show
     @poem = Poem.find(params[:id])
+    @verses = @poem.verses.order(:pos)
   end
 
   def index

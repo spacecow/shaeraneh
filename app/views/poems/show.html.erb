@@ -1,5 +1,9 @@
-<ul>
-<% @poem.verses.each do |verse| %>
-  <li><%= verse.content %></li>
+<table>
+<% @verses.each do |verse| %>
+  <tr>
+    <td><%= verse.content %></td>
+    <td><%= link_to "▲", descend_poem_verse_path(@poem,verse), :method => :put unless @verses.first == verse %></td>
+    <td><%= link_to "▼", ascend_poem_verse_path(@poem,verse), :method => :put unless @verses.last == verse %></td>
+  </tr>
 <% end %>
-</ul>
+</table>

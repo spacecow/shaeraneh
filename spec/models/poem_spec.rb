@@ -11,7 +11,7 @@ describe Poem do
     end
 
     it "caches only the first verse content" do
-      @poem.verses << Factory(:verse,:content=>"2nd")
+      @poem.verses << create_verse("2nd")
     end
 
     after(:each) do
