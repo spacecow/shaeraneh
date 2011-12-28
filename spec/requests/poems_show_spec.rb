@@ -4,11 +4,11 @@ require 'spec_helper'
 describe "Poems" do
   describe "show" do
     before(:each) do
-      poem = Factory(:poem)
-      poem.verses << create_verse("alpha")
-      poem.verses << create_verse("beta")
-      poem.verses << create_verse("gamma")
-      visit poem_path(poem)
+      @poem = Factory(:poem)
+      @poem.verses << create_verse("alpha")
+      @poem.verses << create_verse("beta")
+      @poem.verses << create_verse("gamma")
+      visit poem_path(@poem)
     end
 
     it "list verses" do
@@ -29,6 +29,7 @@ describe "Poems" do
         tablerow(0).should eq ["beta","","▼"]
         tablerow(1).should eq ["alpha","▲" ,"▼"]
         tablerow(2).should eq ["gamma","▲" ,""]
+        Poem.last.first_verse.should eq "beta"
       end
     end
   end

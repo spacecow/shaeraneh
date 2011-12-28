@@ -3,5 +3,6 @@ class Verse < ActiveRecord::Base
 
   attr_accessible :content, :pos
   
-  validates :pos, :presence => true, :uniqueness => true
+  validates_presence_of :pos
+  validates_uniqueness_of :pos, :scope => :poem_id 
 end
