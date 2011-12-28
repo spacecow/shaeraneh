@@ -7,7 +7,7 @@ class Poem < ActiveRecord::Base
   
   def content=(s)
     s.split("\r\n").map{|e| e.split("\t\t")}.flatten.each do |verse|
-      verses << Verse.create!(:content=>verse)
+      verses << Verse.create!(:content=>verse.strip)
     end
   end
 

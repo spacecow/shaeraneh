@@ -11,7 +11,7 @@ describe "Poems" do
     context "create poem" do
       before(:each) do
         visit new_poem_path
-        fill_in "Content", :with => "alpha\t\tbeta\r\ngamma\t\tdelta"
+        fill_in "Content", :with => "alpha \t\t beta\r\n gamma \t\tdelta"
       end
 
       it "create verses" do
@@ -28,7 +28,7 @@ describe "Poems" do
         Verse.all.map(&:poem_id).should eq [poem.id, poem.id, poem.id, poem.id]
       end
 
-      it "verses get a content" do
+      it "verses get a content without end&beginning whitespace" do
         click_button "Create Poem"
         poem = Poem.last
         Verse.all.map(&:content).should eq %w(alpha beta gamma delta)

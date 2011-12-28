@@ -1,5 +1,5 @@
 --- 
-20a13f: !ruby/object:Dooby::Task 
-  todo: don't include ending or beginning whitespace in verses
 c4e8eb: !ruby/object:Dooby::Task 
   todo: sort on the last letter :done
+06c76e: !ruby/object:Dooby::Task 
+  todo: don't include ending or beginning whitespace in verses :done
