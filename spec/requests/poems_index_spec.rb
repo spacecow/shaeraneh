@@ -17,11 +17,17 @@ describe "Poems" do
       end
 
       it "show poem" do
-        poem = Factory(:poem)
-        poem.verses << create_verse("alpha")
+        poem = create_poem("alpha")
         visit poems_path
         click_link "alpha"
         page.current_path.should eq poem_path(poem)
+      end
+
+      it "edit poem" do
+        poem = create_poem('alpha')
+        visit poems_path
+        click_link "Edit"
+        page.current_path.should eq edit_poem_path(poem)
       end
 
       context "delete poem" do
@@ -71,15 +77,15 @@ describe "Poems" do
         poem2 = Factory(:poem)
         poem2.verses << create_verse('alphac')
         visit poems_path
-        tablemaps.first.should eq [['c'],['alphac','Del']]
-        tablemaps.last.should eq [['d'],['betad','Del']]
+        tablemaps.first.should eq [['c'],['alphac','Edit Del']]
+        tablemaps.last.should eq [['d'],['betad','Edit Del']]
       end
 
       it "poems starting with the same letter are grouped toghether" do
         poem2 = Factory(:poem)
         poem2.verses << create_verse('bobyd')
         visit poems_path
-        tablemap.should eq [['d'],['betad','Del'],['bobyd','Del']]
+        tablemap.should eq [['d'],['betad','Edit Del'],['bobyd','Edit Del']]
       end
     end
 

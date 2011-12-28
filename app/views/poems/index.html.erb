@@ -8,7 +8,9 @@
   <% group.each do |poem| %>
     <tr>
       <td><%= link_to poem.first_verse, poem %></td>
-      <td><%= link_to t(:del), poem, :confirm => sure?, :method => :delete %></td>
+      <td>
+        <%= link_to t(:edit), edit_poem_path(poem) %> <%= link_to t(:del), poem, :confirm => sure?, :method => :delete %>
+      </td>
     </tr>
   <% end %>
 </table>

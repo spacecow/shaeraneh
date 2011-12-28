@@ -9,7 +9,7 @@ da4011: !ruby/object:Dooby::Task
   todo: add a way to add verses to an existing poem
 "613657": !ruby/object:Dooby::Task 
   todo: rearrange verses :done
-efaa99: !ruby/object:Dooby::Task 
-  todo: edit link in poem index
 af550a: !ruby/object:Dooby::Task 
   todo: no underline on links
+797f92: !ruby/object:Dooby::Task 
+  todo: edit link in poem index :done
