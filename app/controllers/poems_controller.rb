@@ -5,7 +5,7 @@ class PoemsController < ApplicationController
 
   def index
     poems = Poem.order(:first_verse) || []
-    @poemgroups = poems.group_by{|e| e.first_verse[0]}
+    @poemgroups = poems.group_by{|e| e.last_letter}
   end
 
   def new

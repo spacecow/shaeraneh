@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Poem < ActiveRecord::Base
   has_many :verses, :after_add => :add_first_verse_content, :after_remove => :remove_first_verse_content, :dependent => :destroy
 
@@ -8,6 +9,14 @@ class Poem < ActiveRecord::Base
     s.split("\r\n").map{|e| e.split("\t\t")}.flatten.each do |verse|
       verses << Verse.create!(:content=>verse)
     end
+  end
+
+  def last_letter
+    i = -1
+    while ["!","؟"," "].include?(first_verse[i])
+      i -= 1
+    end
+    first_verse[i]
   end
 
   private

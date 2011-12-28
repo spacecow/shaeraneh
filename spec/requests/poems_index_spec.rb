@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'spec_helper'
 
 describe "Poems" do
@@ -57,28 +58,51 @@ describe "Poems" do
     context "list poems" do
       before(:each) do
         poem = Factory(:poem)
-        poem.verses << create_verse('beta')
+        poem.verses << create_verse('betad')
       end
 
       it "show in a table" do
         visit poems_path
-        tablecell(0,0).should eq 'b'
-        tablecell(1,0).should eq 'beta'
+        tablecell(0,0).should eq 'd'
+        tablecell(1,0).should eq 'betad'
       end
 
       it "poems are sorted alphabetically" do
         poem2 = Factory(:poem)
-        poem2.verses << create_verse('alpha')
+        poem2.verses << create_verse('alphac')
         visit poems_path
-        tablemaps.first.should eq [['a'],['alpha','Del']]
-        tablemaps.last.should eq [['b'],['beta','Del']]
+        tablemaps.first.should eq [['c'],['alphac','Del']]
+        tablemaps.last.should eq [['d'],['betad','Del']]
       end
 
       it "poems starting with the same letter are grouped toghether" do
         poem2 = Factory(:poem)
-        poem2.verses << create_verse('boby')
+        poem2.verses << create_verse('bobyd')
         visit poems_path
-        tablemap.should eq [['b'],['beta','Del'],['boby','Del']]
+        tablemap.should eq [['d'],['betad','Del'],['bobyd','Del']]
+      end
+    end
+
+    context "poems cannot end with" do
+      before(:each) do
+        @poem = Factory(:poem)
+      end
+   
+      it "!" do 
+        @poem.verses << create_verse("alpha!") 
+      end
+
+      it "؟" do
+        @poem.verses << create_verse("alpha؟") 
+      end
+
+      it "\\s" do
+        @poem.verses << create_verse("alpha ") 
+      end
+
+      after(:each) do
+        visit poems_path
+        tablecell(0,0).should eq 'a'
       end
     end
   end
