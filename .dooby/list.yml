@@ -3,3 +3,7 @@ c4e8eb: !ruby/object:Dooby::Task
   todo: sort on the last letter :done
 06c76e: !ruby/object:Dooby::Task 
   todo: don't include ending or beginning whitespace in verses :done
+059522: !ruby/object:Dooby::Task 
+  todo: rearrange verses
+165f96: !ruby/object:Dooby::Task 
+  todo: edit verses :done

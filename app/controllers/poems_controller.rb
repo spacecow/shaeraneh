@@ -30,6 +30,17 @@ class PoemsController < ApplicationController
     end
   end
 
+  def edit
+    @poem = Poem.find(params[:id])
+  end
+
+  def update
+    @poem = Poem.find(params[:id])
+    if @poem.update_attributes(params[:poem])
+      redirect_to poems_path, :notice => updated(:poem)
+    end
+  end
+
   def destroy
     Poem.find(params[:id]).destroy
     redirect_to poems_path, :notice => deleted(:poem)

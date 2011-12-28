@@ -4,6 +4,7 @@ en:
   verse: "Verse"
 
   labels:
+    edit: "Edit %{o}"
     new: "New %{o}"
 
   messages:
@@ -12,3 +13,4 @@ en:
   successes:
     created_with: "Successfully created %{o} with %{no} %{o2}."
     deleted: "Successfully deleted %{o}."
+    updated: "Successfully updated %{o}."

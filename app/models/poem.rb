@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 class Poem < ActiveRecord::Base
   has_many :verses, :after_add => :add_first_verse_content, :after_remove => :remove_first_verse_content, :dependent => :destroy
-
-  attr_accessible :content
+  accepts_nested_attributes_for :verses
+  attr_accessible :content,:verses_attributes
   attr_accessor :content
   
   def content=(s)

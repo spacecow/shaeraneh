@@ -1,0 +1,8 @@
+<%= title edit(:poem) %>
+
+<%= semantic_form_for @poem do |f| %>
+  <%= f.semantic_fields_for :verses do |verse| %>
+    <%= verse.input :content, :label => false %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
