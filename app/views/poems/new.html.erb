@@ -4,3 +4,9 @@
   <%= f.input :content, :as => :text %>
   <%= f.submit %>
 <% end %>
+
+<ul>
+  <% @last_verses.each do |verse| %>
+  <li><%= verse.content %></li>
+  <% end %>
+</ul>

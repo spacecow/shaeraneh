@@ -11,12 +11,14 @@ class PoemsController < ApplicationController
 
   def new
     @poem = Poem.new
+    @last_verses = Poem.last ? Poem.last.verses : []
   end
 
   def create
     @poem = Poem.new(params[:poem])
     if params[:poem][:content].empty?
       @poem.errors.add(:content,"can't be blank")
+      @last_verses = Poem.last ? Poem.last.verses : []
       render :new and return 
     end
     if @poem.save
@@ -25,8 +27,9 @@ class PoemsController < ApplicationController
       else
         flash[:notice] = notify_with(:poem,@poem.verses.count,pt(:verse))
       end
-      redirect_to poems_path
+      redirect_to new_poem_path
     else
+      @last_verses = Poem.last ? Poem.last.verses : []
       render :new
     end
   end

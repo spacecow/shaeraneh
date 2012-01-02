@@ -34,9 +34,22 @@ describe "Poems" do
         Verse.all.map(&:content).should eq %w(alpha beta gamma delta)
       end
 
+      it "redirects back to the new poem page" do
+        click_button "Create Poem"
+        page.current_path.should eq new_poem_path
+      end
+
       it "poem gets first_verse set" do
         click_button "Create Poem"
         Poem.last.first_verse.should eq "alpha"
+      end
+
+      it "last verse set gets shown" do
+        click_button "Create Poem"
+        page.should have_content('alpha')
+        page.should have_content('beta')
+        page.should have_content('gamma')
+        page.should have_content('delta')
       end
 
       it "flash gets set" do

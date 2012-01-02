@@ -1,5 +1,7 @@
 <%= title pt(:poem) %>
 
+<%= link_to new(:poem), new_poem_path %>
+
 <% @poemgroups.each do |letter,group| %>
 <table>
   <tr>
