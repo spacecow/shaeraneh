@@ -14,8 +14,9 @@ class Poem < ActiveRecord::Base
   end
 
   def last_letter
+    return "" if first_verse.blank?
     i = -1
-    while ["!","؟"," "].include?(first_verse[i])
+    while ["!","؟"," ",":","»"] .include?(first_verse[i])
       i -= 1
     end
     first_verse[i]
@@ -24,16 +25,30 @@ class Poem < ActiveRecord::Base
   private
 
     def add_first_verse_content(verse)
-      update_attribute(:first_verse,verse.content) if first_verse.blank?
+      if first_verse.blank?
+        set_first_verse_content(verse.content)
+        set_initial
+      end
     end
 
     def children; verses end
 
+    def set_first_verse_content(s)
+      update_attribute(:first_verse,s) 
+    end
+    def set_initial
+      update_attribute(:initial,last_letter)
+    end
+
     def remove_first_verse_content(verse)
       if verses.empty?
-        update_attribute(:first_verse,"")
+        set_first_verse_content("")
+        set_initial
       else
-        update_attribute(:first_verse,verses.first.content) if verses.first != first_verse
+        if verses.first != first_verse
+          set_first_verse_content(verses.first.content) 
+          set_initial
+        end
       end
     end
 end

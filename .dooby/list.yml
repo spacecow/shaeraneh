@@ -13,3 +13,5 @@ da4011: !ruby/object:Dooby::Task
   todo: edit link in poem index :done
 5d2ab5: !ruby/object:Dooby::Task 
   todo: no underline on links :done
+3c4927: !ruby/object:Dooby::Task 
+  todo: add a column for initial letter :done
