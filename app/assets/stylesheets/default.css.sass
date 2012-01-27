@@ -1,7 +1,19 @@
-html
-  a
-    text-decoration: none
+$blue: #4B7399
+
+body
   font: normal 14px "Helvetica Neue", Arial, Helvetica, sans-serif
+a
+  text-decoration: none 
+  color: $blue
+  text-shadow: 1px 1px 1px #aaa
+  &:hover
+    color: #eee
+    text-shadow: 1px 1px 1px $blue 
+
+div.clear
+  clear: both
+  height: 0
+  overflow: hidden
 
 form
   li
