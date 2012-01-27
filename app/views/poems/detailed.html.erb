@@ -1,15 +1,1 @@
-<div id="poems">
-  <% @poemgroups.each do |letter,group| %>
-    <div id="<%= letter %>">
-      <% group.each do |poem| %>
-        <div class="poem">
-          <%= poem.verses.each do |verse| %>
-            <div class="verse">
-              <%= verse.content %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+<%= render 'poemgroups', :poemgroups => @poemgroups %>

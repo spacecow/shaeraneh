@@ -1,0 +1,5 @@
+<div id="poems">
+  <% poemgroups.each do |letter,group| %>
+    <%= render 'poemgroup', :letter=>letter, :group=>group %>
+  <% end %>
+</div>
