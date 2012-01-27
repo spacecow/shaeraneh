@@ -4,6 +4,11 @@ en:
   poem: "Poem"
   verse: "Verse"
 
+  activerecord:
+    errors:
+      messages:
+        blank: "can't be blank"
+
   labels:
     edit: "Edit %{o}"
     new: "New %{o}"

@@ -16,7 +16,7 @@ class Poem < ActiveRecord::Base
   def last_letter
     return "" if first_verse.blank?
     i = -1
-    while ["!","؟"," ",":","»"] .include?(first_verse[i])
+    while ["!","؟"," ",":","»"].include?(first_verse[i])
       i -= 1
     end
     first_verse[i]
