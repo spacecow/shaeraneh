@@ -20,6 +20,16 @@ describe "Words" do
       it "has a create button" do
         page.should have_button('Create Word')
       end
+
+      it "there should be a div for the last input word" do
+        page.should have_div('last_word') 
+      end
+      it "shows the last input word on the top of the page" do
+        create_word('cat','has a tail')
+        visit new_word_path
+        div('last_word').div('word').should have_content('Word: cat')
+        div('last_word').div('content').should have_content('Definition: has a tail')
+      end
     end
 
     context "create word" do
