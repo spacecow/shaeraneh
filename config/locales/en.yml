@@ -12,6 +12,11 @@ en:
       messages:
         blank: "can't be blank"
 
+  formtastic:
+    labels:
+      definition: 'Definition'
+      word: 'Word'
+
   labels:
     edit: 'Edit %{o}'
     new: 'New %{o}'
