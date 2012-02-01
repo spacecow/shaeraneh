@@ -21,5 +21,63 @@ describe "Words" do
         page.should have_button('Create Word')
       end
     end
+
+    context "create word" do
+      before(:each) do
+        fill_in 'Word', :with => 'dog'
+        fill_in 'Definition', :with => 'animal'
+      end
+
+      it "adds a word to the database" do
+        lambda do
+          click_button 'Create Word'
+        end.should change(Word,:count).by(1)
+      end
+
+      it "adds a definition to the database" do
+        lambda do
+          click_button 'Create Word'
+        end.should change(Definition,:count).by(1)
+      end
+
+      it "adds a definition assoc. to the word" do
+        click_button 'Create Word'
+        Word.last.definitions.should eq [Definition.last]
+      end
+
+      it "saves the name of the word" do
+        click_button 'Create Word'
+        Word.last.name.should eq 'dog'
+      end
+
+      it "saves the content of the definition" do
+        click_button 'Create Word'
+        Definition.last.content.should eq 'animal'
+      end
+
+      it "redirects to the new word page" do
+        click_button 'Create Word'
+        current_path.should eq new_word_path
+      end
+
+      it "shows a flash message" do
+        click_button 'Create Word'
+        page.should have_notice('Word was successfully created.')
+      end
+
+      context "error" do
+        it "words cannot be blank" do
+          fill_in 'Word', :with => ''
+          click_button 'Create Word'
+          li(:word).should have_blank_error
+        end
+
+        it "definition cannot be blank" do
+          fill_in 'Definition', :with => ''
+          click_button 'Create Word'
+          li(:definition).should have_blank_error
+        end
+      end
+    end
   end
 end

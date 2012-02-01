@@ -21,3 +21,5 @@ f329e1: !ruby/object:Dooby::Task
   todo: making word inputs :done
 e49ea9: !ruby/object:Dooby::Task 
   todo: initial word form layout :done
+bc5b37: !ruby/object:Dooby::Task 
+  todo: create word+definition :done

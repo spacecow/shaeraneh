@@ -25,6 +25,7 @@ en:
     sure?: "Are you sure?"
 
   successes:
+    created: '%{o} was successfully created.'
     created_with: "Successfully created %{o} with %{no} %{o2}."
     deleted: "Successfully deleted %{o}."
     updated: "Successfully updated %{o}."
