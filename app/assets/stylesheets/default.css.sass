@@ -1,4 +1,13 @@
+@import "compass/css3/gradient"
+@import "compass/css3/border-radius"
+
 $blue: #4B7399
+
+@mixin gradient($light, $dark, $corner: 10px)
+  font-weight: bold
+  padding: 5px
+  +border-radius($corner)
+  +linear-gradient(color-stops($light, $dark))
 
 body
   font: normal 14px "Helvetica Neue", Arial, Helvetica, sans-serif
@@ -14,6 +23,10 @@ div.clear
   clear: both
   height: 0
   overflow: hidden
+
+div#site_nav
+  float: left
+  +gradient(white,#ccc)
 
 form
   li

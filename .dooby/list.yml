@@ -17,3 +17,5 @@ da4011: !ruby/object:Dooby::Task
   todo: add a column for initial letter :done
 f329e1: !ruby/object:Dooby::Task 
   todo: detailed view layout :done
+84de5a: !ruby/object:Dooby::Task 
+  todo: making word inputs :done

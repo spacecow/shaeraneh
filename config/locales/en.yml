@@ -1,8 +1,11 @@
 en:
-  del: "Del"
-  edit: "Edit"
-  poem: "Poem"
-  verse: "Verse"
+  del: 'Del'
+  edit: 'Edit'
+  poem: 'Poem'
+  poems: 'Poems'
+  verse: 'Verse'
+  word: 'Word'
+  words: 'Words'
 
   activerecord:
     errors:
@@ -10,8 +13,8 @@ en:
         blank: "can't be blank"
 
   labels:
-    edit: "Edit %{o}"
-    new: "New %{o}"
+    edit: 'Edit %{o}'
+    new: 'New %{o}'
 
   messages:
     sure?: "Are you sure?"
