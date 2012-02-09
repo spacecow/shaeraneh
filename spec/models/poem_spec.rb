@@ -16,6 +16,7 @@ describe Poem do
 
     after(:each) do
       @poem.first_verse.should eq "1st"     
+      @poem.initial.should eq "t"
     end
   end
 
@@ -29,6 +30,7 @@ describe Poem do
     it "removes cached verse when no verses are left" do
       @poem.verses.destroy(@verse)
       @poem.first_verse.should eq "" 
+      @poem.initial.should eq "" 
     end
 
     it "does not remove cached verse if there are other verses" do
@@ -36,6 +38,7 @@ describe Poem do
       @poem.verses << verse2
       @poem.verses.destroy(verse2)
       @poem.first_verse.should eq "1st"
+      @poem.initial.should eq "t"
     end
 
     it "changes the cached verse if the first verse is deleted" do
@@ -43,6 +46,7 @@ describe Poem do
       @poem.verses << verse2
       @poem.verses.destroy(@verse)
       @poem.first_verse.should eq "2nd"
+      @poem.initial.should eq "d"
     end
   end
 end

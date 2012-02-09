@@ -1,0 +1,30 @@
+<%= title new(:word) %>
+
+<div id="last_word">
+  <h2>Last Word</h2>
+  <div id="word">
+    <span class="label">
+      <%= ft(:word) %>:
+    </span>
+    <span class="content">
+      <%= @last_word && @last_word.name %>
+    </span>
+  </div>
+  <div id="content">
+    <span class="label">
+      <%= ft(:definition) %>:
+    </span>
+    <span class="content">
+      <%= @last_word && @last_word.definitions.last.content %>
+    </span>
+  </div>
+</div>
+<div class="clear"></div>
+
+<%= semantic_form_for @word do |f| %>
+  <%= f.input :name, :label => ft(:word) %>
+  <%= f.semantic_fields_for :definitions do |ref| %>
+    <%= ref.input :content, :label => ft(:definition) %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

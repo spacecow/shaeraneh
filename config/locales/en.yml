@@ -1,17 +1,31 @@
 en:
-  del: "Del"
-  edit: "Edit"
-  poem: "Poem"
-  verse: "Verse"
+  del: 'Del'
+  edit: 'Edit'
+  poem: 'Poem'
+  poems: 'Poems'
+  verse: 'Verse'
+  word: 'Word'
+  words: 'Words'
+
+  activerecord:
+    errors:
+      messages:
+        blank: "can't be blank"
+
+  formtastic:
+    labels:
+      definition: 'Definition'
+      word: 'Word'
 
   labels:
-    edit: "Edit %{o}"
-    new: "New %{o}"
+    edit: 'Edit %{o}'
+    new: 'New %{o}'
 
   messages:
     sure?: "Are you sure?"
 
   successes:
+    created: '%{o} was successfully created.'
     created_with: "Successfully created %{o} with %{no} %{o2}."
     deleted: "Successfully deleted %{o}."
     updated: "Successfully updated %{o}."

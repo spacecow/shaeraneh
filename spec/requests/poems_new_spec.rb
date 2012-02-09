@@ -44,6 +44,11 @@ describe "Poems" do
         Poem.last.first_verse.should eq "alpha"
       end
 
+      it "poem gets initial set" do
+        click_button "Create Poem"
+        Poem.last.initial.should eq "a"
+      end
+
       it "last verse set gets shown" do
         click_button "Create Poem"
         page.should have_content('alpha')

@@ -6,7 +6,11 @@ class PoemsController < ApplicationController
 
   def index
     poems = Poem.order(:first_verse) || []
-    @poemgroups = poems.group_by{|e| e.last_letter}
+    @poemgroups = poems.group_by{|e| e.initial}
+    respond_to do |f|
+      f.html
+      f.json {render :json => poems.to_json(:include => :verses)}
+    end
   end
 
   def new
@@ -41,12 +45,17 @@ class PoemsController < ApplicationController
   def update
     @poem = Poem.find(params[:id])
     if @poem.update_attributes(params[:poem])
-      redirect_to poems_path, :notice => updated(:poem)
+      redirect_to detailed_poems_path, :notice => updated(:poem)
     end
   end
 
   def destroy
     Poem.find(params[:id]).destroy
     redirect_to poems_path, :notice => deleted(:poem)
+  end
+
+  def detailed
+    poems = Poem.order(:first_verse)
+    @poemgroups = poems.group_by{|e| e.initial}
   end
 end

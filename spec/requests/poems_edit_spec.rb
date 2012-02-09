@@ -33,7 +33,7 @@ describe "Poems" do
 
       it "redirects to the poem index page" do
         click_button 'Update Poem'
-        page.current_path.should eq poems_path
+        page.current_path.should eq detailed_poems_path
       end
 
       it "displays a flash message" do

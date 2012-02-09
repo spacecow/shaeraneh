@@ -1,5 +1,9 @@
 Shaeraneh::Application.routes.draw do
+  resources :words, :only => [:index,:new,:create]
   resources :poems do
+    collection do
+      get 'detailed'
+    end
     resources :verses do
       member do
         put 'ascend'

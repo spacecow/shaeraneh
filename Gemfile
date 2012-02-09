@@ -6,6 +6,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'jquery-rails'
 gem 'formtastic'
+gem 'compass', '>= 0.12.alpha.0'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
@@ -18,7 +19,7 @@ group :development do
 end
 
 group :test do
-  gem 'spork'
+  gem 'spork', '> 0.9.0.rc'
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'

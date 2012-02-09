@@ -1,0 +1,6 @@
+<div id="<%= letter %>">
+  <%= subtitle letter %>
+  <% group.each do |poem| %>
+    <%= render 'poem', :poem=>poem %>
+  <% end %>
+</div>

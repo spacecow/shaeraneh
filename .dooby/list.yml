@@ -13,3 +13,15 @@ da4011: !ruby/object:Dooby::Task
   todo: edit link in poem index :done
 5d2ab5: !ruby/object:Dooby::Task 
   todo: no underline on links :done
+3c4927: !ruby/object:Dooby::Task 
+  todo: add a column for initial letter :done
+f329e1: !ruby/object:Dooby::Task 
+  todo: detailed view layout :done
+84de5a: !ruby/object:Dooby::Task 
+  todo: making word inputs :done
+e49ea9: !ruby/object:Dooby::Task 
+  todo: initial word form layout :done
+bc5b37: !ruby/object:Dooby::Task 
+  todo: create word+definition :done
+e0fb91: !ruby/object:Dooby::Task 
+  todo: show the last input word on top of the page :done

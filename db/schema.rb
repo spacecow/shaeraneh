@@ -11,12 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228041625) do
+ActiveRecord::Schema.define(:version => 20120201024805) do
+
+  create_table "definitions", :force => true do |t|
+    t.text     "content"
+    t.integer  "word_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "letters", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "poems", :force => true do |t|
     t.string   "first_verse", :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "initial"
   end
 
   create_table "verses", :force => true do |t|
@@ -25,6 +39,12 @@ ActiveRecord::Schema.define(:version => 20111228041625) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "pos"
+  end
+
+  create_table "words", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
