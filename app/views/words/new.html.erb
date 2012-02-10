@@ -10,14 +10,16 @@
       <%= @last_word && @last_word.name %>
     </span>
   </div>
-  <div id="content">
-    <span class="label">
-      <%= ft(:definition) %>:
-    </span>
-    <span class="content">
-      <%= @last_word && @last_word.definitions.last.content %>
-    </span>
-  </div>
+  <% if @last_word && @last_word.definitions.present? %>
+    <div id="content">
+      <span class="label">
+        <%= ft(:definition) %>:
+      </span>
+      <span class="content">
+        <%= @last_word.definitions.last.content %>
+      </span>
+    </div>
+  <% end %>
 </div>
 <div class="clear"></div>
 

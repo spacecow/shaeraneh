@@ -8,7 +8,4 @@ class ApplicationController < ActionController::Base
     jt("successes.created_with",:o=>pl(mdl,1),:no=>no,:o2=>children)
   end
 
-  def t
-    fe
-  end
 end

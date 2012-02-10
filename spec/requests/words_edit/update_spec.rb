@@ -31,6 +31,13 @@ describe "Words" do
         click_button 'Update Word'
         current_path.should eq words_path
       end
+
+      it "checking the box removes the definition" do
+        check 'Remove Definition'
+        lambda do
+          click_button 'Update Word'
+        end.should change(Definition,:count).by(-1)
+      end
     end
   end
 end

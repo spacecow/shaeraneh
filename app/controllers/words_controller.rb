@@ -5,7 +5,7 @@ class WordsController < ApplicationController
 
   def new
     @word = Word.new
-    @word.definitions.build
+    2.times{@word.definitions.build}
     @last_word = Word.last
   end
   

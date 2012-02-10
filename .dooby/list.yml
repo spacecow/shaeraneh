@@ -31,3 +31,5 @@ e0fb91: !ruby/object:Dooby::Task
   todo: list words :done
 8eef56: !ruby/object:Dooby::Task 
   todo: edit words :done
+367f94: !ruby/object:Dooby::Task 
+  todo: add definition with ajax :done

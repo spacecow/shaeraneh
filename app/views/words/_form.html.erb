@@ -1,7 +1,10 @@
 <%= semantic_form_for @word do |f| %>
   <%= f.input :name, :label => ft(:word) %>
-  <%= f.semantic_fields_for :definitions do |ref| %>
-    <%= ref.input :content, :label => ft(:definition) %>
+  <% @word.definitions.each_with_index do |definition,i| %>
+    <%= f.inputs :for => [:definitions,definition] do |ref| %>
+      <%= render "definition_fields", f:ref, i:i %>
+    <% end %>
   <% end %>
+  <li><%= link_to_add_fields add(:definition), f, :definitions %></li>
   <%= submit f,@word %>
 <% end %>

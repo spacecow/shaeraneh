@@ -1,0 +1,7 @@
+<li id="word_definitions_attributes_<%= i %>_content_input">
+  <%= f.label :content, ft(:definition), :class => :inline %>
+  <%= f.check_box :_destroy, :class => :inline %>
+  <%= f.label :_destroy, remove(:definition), :class => "inline margin" %>
+  <div class="clear"></div>
+  <%= f.text_area :content %>
+</li>
