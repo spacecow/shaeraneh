@@ -1,5 +1,6 @@
 class WordsController < ApplicationController
   def index
+    @words = Word.scoped
   end
 
   def new

@@ -1,0 +1,11 @@
+<div class="word">
+  <div id="word">
+    <%= word.name %>
+  </div>
+  <div id="definitions">
+    <% word.definitions.each_with_index do |definition,i| %>
+      <%= render definition, i:i+1 %>
+    <% end %>
+  </div>
+</div>
+<div class="clear"></div>

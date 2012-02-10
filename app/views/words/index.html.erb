@@ -1,5 +1,11 @@
+<%= title pl(:word) %>
+
 <div id="top_links">
   <%= link_to new(:word), new_word_path %>
+</div>
+
+<div id="words">
+  <%= render @words %>
 </div>
 
 <div id="bottom_links">

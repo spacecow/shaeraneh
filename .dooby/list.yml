@@ -27,3 +27,5 @@ e0fb91: !ruby/object:Dooby::Task
   todo: show the last input word on top of the page :done
 80bdac: !ruby/object:Dooby::Task 
   todo: " :done"
+2fa33e: !ruby/object:Dooby::Task 
+  todo: list words :done
