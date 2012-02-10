@@ -4,5 +4,5 @@ class Word < ActiveRecord::Base
 
   attr_accessible :name,:definitions_attributes
 
-  validates :name, :presence => true
+  validates :name, presence:true, uniqueness:true
 end

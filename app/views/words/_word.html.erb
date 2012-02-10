@@ -1,6 +1,6 @@
 <div class="word">
   <div id="word">
-    <%= word.name %>
+    <%= link_to word.name, edit_word_path(word) %>
   </div>
   <div id="definitions">
     <% word.definitions.each_with_index do |definition,i| %>

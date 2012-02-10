@@ -3,4 +3,5 @@ def create_word(s,*defs)
   defs.each do |definition|
     word.definitions << Factory(:definition,:content=>definition)
   end
+  word
 end

@@ -1,0 +1,7 @@
+<%= semantic_form_for @word do |f| %>
+  <%= f.input :name, :label => ft(:word) %>
+  <%= f.semantic_fields_for :definitions do |ref| %>
+    <%= ref.input :content, :label => ft(:definition) %>
+  <% end %>
+  <%= submit f,@word %>
+<% end %>

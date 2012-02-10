@@ -24,6 +24,10 @@ describe "Words" do
         divs_no('word').should be(1)
       end
 
+      it "the word is a link" do
+        div('word',0).should have_link('cat')
+      end
+
       it "the word is diplayed in the div" do
         div('word',0).div('word').should have_content('cat')
       end

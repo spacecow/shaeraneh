@@ -23,8 +23,10 @@ en:
       word: 'Word'
 
   labels:
+    create: 'Create %{o}'
     edit: 'Edit %{o}'
     new: 'New %{o}'
+    update: 'Update %{o}'
 
   messages:
     sure?: "Are you sure?"

@@ -1,5 +1,5 @@
 Shaeraneh::Application.routes.draw do
-  resources :words, :only => [:index,:new,:create]
+  resources :words, :only => [:index,:new,:create,:edit,:update]
   resources :poems do
     collection do
       get 'detailed'
