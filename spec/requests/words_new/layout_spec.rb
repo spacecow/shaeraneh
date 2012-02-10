@@ -20,6 +20,9 @@ describe "Words" do
     it "there are two def. fields" do
       lis_no(:definition).should be(2)
     end
+    it "has a form field" do
+      value('Forms').should be_nil
+    end
     it "has a create button" do
       page.should have_button('Create Word')
     end

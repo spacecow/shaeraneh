@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe "Words" do
-  context "new, create word" do
+  context "new, create word, 1 def., 2 forms" do
     before(:each) do
       visit new_word_path
       fill_in 'Word', :with => 'dog'
       fill_in 'Definition', :with => 'animal'
+      fill_in 'Forms', :with => 'dogs, doggy'
     end
 
     it "adds a word to the database" do
@@ -23,6 +24,13 @@ describe "Words" do
     it "adds a definition assoc. to the word" do
       click_button 'Create Word'
       Word.last.definitions.should eq [Definition.last]
+    end
+
+    it "adds two forms to the database" do
+      lambda do
+        click_button 'Create Word'
+      end.should change(Form,:count).by(2)
+      Word.last.forms.should eq [Form.first,Form.last]
     end
 
     it "saves the name of the word" do

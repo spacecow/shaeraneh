@@ -6,5 +6,6 @@
     <% end %>
   <% end %>
   <li><%= link_to_add_fields add(:definition), f, :definitions %></li>
+  <%= f.input :form_tokens, :label => ft(:forms), :input_html => {"data-pre" => @word.forms.map(&:attributes).to_json} %>
   <%= submit f,@word %>
 <% end %>

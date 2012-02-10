@@ -1,6 +1,10 @@
 class WordsController < ApplicationController
   def index
     @words = Word.scoped
+    respond_to do |f|
+      f.html
+      f.json {render :json => []}
+    end
   end
 
   def new

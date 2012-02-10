@@ -1,6 +1,9 @@
 Factory.define :definition do |f|
 end
 
+Factory.define :form do |f|
+end
+
 Factory.define :poem do |f|
 end
 

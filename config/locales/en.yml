@@ -23,6 +23,7 @@ en:
   formtastic:
     labels:
       definition: 'Definition'
+      forms: 'Forms'
       word: 'Word'
 
   labels:
