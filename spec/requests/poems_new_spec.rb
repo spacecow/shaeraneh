@@ -59,7 +59,7 @@ describe "Poems" do
 
       it "flash gets set" do
         click_button "Create Poem"
-        page.should have_notice("Successfully created Poem with 4 Verses.")
+        page.should have_notice("Successfully created a Poem with 4 Verses.")
       end
 
       it "content can't be blank" do

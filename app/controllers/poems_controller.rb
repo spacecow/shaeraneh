@@ -27,9 +27,9 @@ class PoemsController < ApplicationController
     end
     if @poem.save
       if @poem.verses.count == 1
-        flash[:notice] = notify_with(:poem,1,t(:verse))
+        flash[:notice] = notify_with(:poem,1,pl(:verse,1))
       else
-        flash[:notice] = notify_with(:poem,@poem.verses.count,pt(:verse))
+        flash[:notice] = notify_with(:poem,@poem.verses.count,pl(:verse,@poem.verses.count))
       end
       redirect_to new_poem_path
     else

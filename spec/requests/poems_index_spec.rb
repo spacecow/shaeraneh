@@ -56,7 +56,7 @@ describe "Poems" do
 
         it "shows a flash message" do
           click_link "Del"
-          page.should have_notice("Successfully deleted Poem.")
+          page.should have_notice("Poem was successfully deleted.")
         end
       end
     end
@@ -69,23 +69,23 @@ describe "Poems" do
 
       it "show in a table" do
         visit poems_path
-        tablecell(0,0).should eq 'd'
-        tablecell(1,0).should eq 'betad'
+        tableheader.should eq ['d']
+        tablecell(0,0).should eq 'betad'
       end
 
       it "poems are sorted alphabetically" do
         poem2 = Factory(:poem)
         poem2.verses << create_verse('alphac')
         visit poems_path
-        tablemaps.first.should eq [['c'],['alphac','Edit Del']]
-        tablemaps.last.should eq [['d'],['betad','Edit Del']]
+        tablemaps.first.should eq [['alphac','Edit Del']]
+        tablemaps.last.should eq [['betad','Edit Del']]
       end
 
       it "poems starting with the same letter are grouped toghether" do
         poem2 = Factory(:poem)
         poem2.verses << create_verse('bobyd')
         visit poems_path
-        tablemap.should eq [['d'],['betad','Edit Del'],['bobyd','Edit Del']]
+        tablemap.should eq [['betad','Edit Del'],['bobyd','Edit Del']]
       end
     end
 
@@ -108,7 +108,7 @@ describe "Poems" do
 
       after(:each) do
         visit poems_path
-        tablecell(0,0).should eq 'a'
+        tableheader.should eq ['a']
       end
     end
   end

@@ -38,7 +38,7 @@ describe "Poems" do
 
       it "displays a flash message" do
         click_button 'Update Poem'
-        page.should have_notice('Successfully updated Poem.')
+        page.should have_notice('Poem was successfully updated.')
       end
     end
   end

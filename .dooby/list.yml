@@ -25,3 +25,5 @@ bc5b37: !ruby/object:Dooby::Task
   todo: create word+definition :done
 e0fb91: !ruby/object:Dooby::Task 
   todo: show the last input word on top of the page :done
+80bdac: !ruby/object:Dooby::Task 
+  todo: " :done"

@@ -1,11 +1,16 @@
 en:
   del: 'Del'
   edit: 'Edit'
-  poem: 'Poem'
-  poems: 'Poems'
-  verse: 'Verse'
-  word: 'Word'
-  words: 'Words'
+
+  poem: 
+    one: 'Poem'
+    other: 'Poems'
+  verse: 
+    one: 'Verse' 
+    other: 'Verses'
+  word: 
+    one: 'Word'
+    other: 'Words'
 
   activerecord:
     errors:
@@ -26,6 +31,6 @@ en:
 
   successes:
     created: '%{o} was successfully created.'
-    created_with: "Successfully created %{o} with %{no} %{o2}."
-    deleted: "Successfully deleted %{o}."
-    updated: "Successfully updated %{o}."
+    created_with: "Successfully created a %{o} with %{no} %{o2}."
+    deleted: "%{o} was successfully deleted."
+    updated: "%{o} was successfully updated."
