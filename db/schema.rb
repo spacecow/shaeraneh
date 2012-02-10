@@ -20,12 +20,6 @@ ActiveRecord::Schema.define(:version => 20120201024805) do
     t.datetime "updated_at"
   end
 
-  create_table "letters", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "poems", :force => true do |t|
     t.string   "first_verse", :default => ""
     t.datetime "created_at"
