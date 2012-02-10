@@ -1,6 +1,25 @@
 require 'spec_helper'
 
 describe "Words" do
+  context "new, create word and link to poem" do
+    before(:each) do
+      create_poem("a doggy word","a cat hose")
+      visit new_word_path
+    end 
+
+    it "by the word" do
+      fill_in 'Word', :with => 'dog'
+      lambda do
+        click_button 'Create Word'
+      end.should change(Lookup,:count).by(1)
+    end
+
+    it "by a form" do
+      fill_in 'Forms', :with => 'dogs, doggy'
+      click_button 'Create Word'
+    end
+  end #new, create word and link to poem
+
   context "new, create word, 1 def., 2 forms" do
     before(:each) do
       visit new_word_path
