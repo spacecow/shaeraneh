@@ -35,3 +35,5 @@ e0fb91: !ruby/object:Dooby::Task
   todo: add definition with ajax :done
 fdabe8: !ruby/object:Dooby::Task 
   todo: add form :done
+74cad2: !ruby/object:Dooby::Task 
+  todo: list forms with words on index page :done

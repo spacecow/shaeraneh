@@ -1,6 +1,11 @@
 <div class="word">
   <div id="word">
-    <%= link_to word.name, edit_word_path(word) %>
+    <div id="base">
+      <%= link_to word.name, edit_word_path(word) %>
+    </div>
+    <div id="forms">
+      <%= render word.forms %>
+    </div>
   </div>
   <div id="definitions">
     <% word.definitions.each_with_index do |definition,i| %>
