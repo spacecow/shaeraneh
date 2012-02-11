@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120210064938) do
+ActiveRecord::Schema.define(:version => 20120210110524) do
 
   create_table "definitions", :force => true do |t|
     t.text     "content"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20120210064938) do
 
   create_table "forms", :force => true do |t|
     t.string   "name"
+    t.integer  "word_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lookups", :force => true do |t|
+    t.integer  "verse_id"
     t.integer  "word_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -3,20 +3,31 @@ require 'spec_helper'
 describe "Words" do
   context "new, create word and link to poem" do
     before(:each) do
-      create_poem("a doggy word","a cat hose")
+      create_poem("a dog word","a doggy house")
       visit new_word_path
     end 
 
-    it "by the word" do
+    it "by the word", solr:true do
       fill_in 'Word', :with => 'dog'
       lambda do
         click_button 'Create Word'
       end.should change(Lookup,:count).by(1)
     end
 
-    it "by a form" do
+    it "by a form", solr:true do
+      fill_in 'Word', :with => 'cat'
       fill_in 'Forms', :with => 'dogs, doggy'
-      click_button 'Create Word'
+      lambda do
+        click_button 'Create Word'
+      end.should change(Lookup,:count).by(1)
+    end
+
+    it "by a word and a form", solr:true do
+      fill_in 'Word', :with => 'dog'
+      fill_in 'Forms', :with => 'dogs, doggy'
+      lambda do
+        click_button 'Create Word'
+      end.should change(Lookup,:count).by(2)
     end
   end #new, create word and link to poem
 

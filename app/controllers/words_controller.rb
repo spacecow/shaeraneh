@@ -16,6 +16,7 @@ class WordsController < ApplicationController
   def create
     @word = Word.new(params[:word])
     if @word.save
+      create_links(@word)
       redirect_to new_word_path, :notice => created(:word)
     else
       render :new
@@ -34,4 +35,15 @@ class WordsController < ApplicationController
       render :edit
     end
   end
+  
+  private
+
+    def create_links(word)
+      arr = word.forms.map(&:name)
+      arr << word.name
+      arr.each do |s|
+        search = Verse.lookup(s)
+        word.verses << search.results
+      end
+    end
 end

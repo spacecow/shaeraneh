@@ -36,8 +36,18 @@ describe "Words" do
       create_word('cat','has a tail')
       visit new_word_path
       div('last_word').div('word').should have_content('Word: cat')
+      div('last_word').div('word').should_not have_content('Word: cat,')
       div('last_word').div('content').should have_content('Definition: has a tail')
     end
+
+    it "shows the last input word on the top of the page with definition and form" do
+      create_word('cat',['has a tail'],['kitten'])
+      visit new_word_path
+      div('last_word').div('word').should have_content('Word: cat, kitten')
+      div('last_word').div('content').should have_content('Definition: has a tail')
+    end
+
+    it "shows the last input word on the top of the page with definition, form and links"
 
     it "shows the last input word on the top of the page without definition" do
       create_word('cat')

@@ -7,6 +7,7 @@ gem 'therubyracer'
 gem 'jquery-rails'
 gem 'formtastic'
 gem 'compass', '>= 0.12.alpha.0'
+gem 'sunspot_rails'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
@@ -16,6 +17,7 @@ end
 
 group :development do
   gem 'rspec-rails'
+  gem 'sunspot_solr'
 end
 
 group :test do

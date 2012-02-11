@@ -6,7 +6,7 @@ class Poem < ActiveRecord::Base
   accepts_nested_attributes_for :verses
   attr_accessible :content,:verses_attributes
   attr_accessor :content
-  
+
   def content=(s)
     s.split("\r\n").map{|e| e.split("\t\t")}.flatten.each_with_index do |verse,i|
       verses << Verse.create!(:content=>verse.strip,:pos=>i)
