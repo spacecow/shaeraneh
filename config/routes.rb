@@ -1,4 +1,5 @@
 Shaeraneh::Application.routes.draw do
+  resources :locales, :only => :index
   resources :translations, :only => [:index,:create] do
     collection do
       put 'update_multiple'
