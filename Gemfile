@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'formtastic'
 gem 'compass', '>= 0.12.alpha.0'
 gem 'sunspot_rails'
+gem 'redis'
+gem 'yajl-ruby'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

@@ -37,3 +37,5 @@ fdabe8: !ruby/object:Dooby::Task
   todo: add form :done
 74cad2: !ruby/object:Dooby::Task 
   todo: list forms with words on index page :done
+d53029: !ruby/object:Dooby::Task 
+  todo: add translation index :done

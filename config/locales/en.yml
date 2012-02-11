@@ -1,6 +1,8 @@
 en:
   del: 'Del'
+  en: 'English'
   edit: 'Edit'
+  ir: 'Persian'
 
   definition:
     one: 'Definition'
@@ -8,6 +10,9 @@ en:
   poem: 
     one: 'Poem'
     other: 'Poems'
+  translation:
+    one: 'Translation'
+    other: 'Translations'
   verse: 
     one: 'Verse' 
     other: 'Verses'
@@ -24,6 +29,8 @@ en:
     labels:
       definition: 'Definition'
       forms: 'Forms'
+      key: 'Key'
+      locale: 'Locale'
       word: 'Word'
 
   labels:

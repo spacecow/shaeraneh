@@ -4,6 +4,9 @@ end
 Factory.define :form do |f|
 end
 
+Factory.define :locale do |f|
+end
+
 Factory.define :poem do |f|
 end
 

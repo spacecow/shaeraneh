@@ -1,4 +1,10 @@
 Shaeraneh::Application.routes.draw do
+  resources :translations, :only => [:index,:create] do
+    collection do
+      put 'update_multiple'
+    end
+  end
+
   resources :words, :only => [:index,:new,:create,:edit,:update]
   resources :poems do
     collection do
