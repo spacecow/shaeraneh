@@ -11,7 +11,7 @@
     <tr>
       <td><%= suffix %></td>
       <% languages(@translations).each do |lang| %>
-        <td>
+        <td id="<%= lang %>">
           <%= text_field_tag "#{lang}[#{i}][value]", translate_or_skip(suffix,lang) %>
           <%= hidden_field_tag "#{lang}[#{i}][key]", key_value(suffix) %>
           <%= hidden_field_tag "#{lang}[#{i}][locale]", locale("#{lang}.#{suffix}") %>
