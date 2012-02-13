@@ -1,4 +1,9 @@
 Shaeraneh::Application.routes.draw do
+  get 'login' => 'sessions#new'
+  get 'signup' => 'users#new'
+  resources :sessions, :only => [:new,:create]
+  resources :users, :only => :new
+  
   resources :locales, :only => :index
   resources :translations, :only => [:index,:create] do
     collection do

@@ -20,3 +20,7 @@ end
 Spork.each_run do
   FactoryGirl.reload
 end
+
+def create_user(email)
+  Factory(:user,email:email)
+end

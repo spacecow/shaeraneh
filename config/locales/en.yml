@@ -24,6 +24,9 @@ en:
     errors:
       messages:
         blank: "can't be blank"
+  
+  alerts:
+    invalid_login_or_password: 'Invalid login or password.'
 
   formtastic:
     labels:
@@ -31,6 +34,8 @@ en:
       forms: 'Forms'
       key: 'Key'
       locale: 'Locale'
+      login: 'Login'
+      signup: 'Signup'
       word: 'Word'
 
   labels:
@@ -42,6 +47,7 @@ en:
     update: 'Update %{o}'
 
   messages:
+    dont_have_an_account?: "Don't have an account?"
     sure?: "Are you sure?"
 
   successes:
