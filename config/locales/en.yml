@@ -67,3 +67,7 @@ en:
     created_with: "Successfully created a %{o} with %{no} %{o2}."
     deleted: "%{o} was successfully deleted."
     updated: "%{o} was successfully updated."
+
+  unauthorized:
+    new:
+      user: 'You already have an account.'

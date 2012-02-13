@@ -3,24 +3,45 @@ require 'spec_helper'
 
 describe "Poems" do
   describe "index" do
-    it "layout" do
-      visit poems_path
-      page.should have_title("Poems")
-      page.should have_link("New Poem")
+    context "general layout" do
+      before(:each) do
+        visit poems_path
+      end
+
+      it "has a title" do
+        page.should have_title("Poems")
+      end
+
+      it "has no link to a new poem" do
+        page.should_not have_link("New Poem")
+      end
     end
 
-    context "link to" do
+    context "admin layout" do
+      before(:each) do
+        create_admin(:email=>'admin@example.com')
+        login('admin@example.com')
+      end
+
+      it "has a bottom link to a new poem" do
+        bottom_links.should have_link("New Poem")
+      end
+
+      it "has a top link to a new poem" do
+        top_links.should have_link("New Poem")
+      end
+    end
+
+    context "admin links" do
+      before(:each) do
+        create_admin(:email=>'admin@example.com')
+        login('admin@example.com')
+      end
+
       it "new poem" do
         visit poems_path
         click_link "New Poem"
         page.current_path.should eq new_poem_path
-      end
-
-      it "show poem" do
-        poem = create_poem("alpha")
-        visit poems_path
-        click_link "alpha"
-        page.current_path.should eq poem_path(poem)
       end
 
       it "edit poem" do
@@ -29,9 +50,20 @@ describe "Poems" do
         click_link "Edit"
         page.current_path.should eq edit_poem_path(poem)
       end
+    end
+
+    context "link to" do
+      it "show poem" do
+        poem = create_poem("alpha")
+        visit poems_path
+        click_link "alpha"
+        page.current_path.should eq poem_path(poem)
+      end
 
       context "delete poem" do
         before(:each) do
+          create_admin(:email=>'admin@example.com')
+          login('admin@example.com')
           poem = Factory(:poem)
           poem.verses << create_verse("alpha")
           visit poems_path

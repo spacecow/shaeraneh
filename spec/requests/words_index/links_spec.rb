@@ -5,6 +5,8 @@ describe "Words" do
     context "links, with words" do
       before(:each) do
         @cat = create_word('cat')
+        create_admin(:email=>'admin@example.com')
+        login('admin@example.com')
         visit words_path
       end
 

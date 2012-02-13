@@ -1,6 +1,8 @@
 <%= title pl(:poem) %>
 
-<%= link_to new(:poem), new_poem_path %>
+<div id="top_links">
+  <%= link_to new(:poem), new_poem_path if can? :new, Poem %>
+</div>
 
 <% @poemgroups.each do |letter,group| %>
 <table>
@@ -18,4 +20,6 @@
 </table>
 <% end %>
 
-<%= link_to new(:poem), new_poem_path %>
+<div id="bottom_links">
+  <%= link_to new(:poem), new_poem_path if can? :new, Poem %>
+</div>

@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe "Words" do
+  before(:each) do
+    create_admin(:email=>'admin@example.com')
+    login('admin@example.com')
+  end
+
   context "new, create word and link to poem" do
     before(:each) do
       create_poem("a dog word","a doggy house")

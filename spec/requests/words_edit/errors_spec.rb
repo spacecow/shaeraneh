@@ -4,6 +4,8 @@ describe "Words" do
   describe "edit" do
     context "errors" do
       before(:each) do
+        create_admin(:email=>'admin@example.com')
+        login('admin@example.com')
         word = create_word("cat")
         visit edit_word_path(word)
       end

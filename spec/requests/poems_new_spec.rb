@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe "Poems" do
   describe "new" do
+    before(:each) do
+      create_admin(:email=>'admin@example.com')
+      login('admin@example.com')
+    end
+
     it "layout" do
       visit new_poem_path
       page.should have_title("New Poem")

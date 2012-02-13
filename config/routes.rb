@@ -17,7 +17,7 @@ Shaeraneh::Application.routes.draw do
     collection do
       get 'detailed'
     end
-    resources :verses do
+    resources :verses, :except => [:show,:index,:new,:create,:edit,:update,:destroy] do
       member do
         put 'ascend'
         put 'descend'

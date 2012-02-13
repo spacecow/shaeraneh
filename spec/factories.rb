@@ -14,6 +14,7 @@ Factory.define :verse do |f|
 end
 
 Factory.define :user do |f|
+  f.email 'test@email.com'
   f.password 'secret'
 end
 

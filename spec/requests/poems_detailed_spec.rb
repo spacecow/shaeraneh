@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe "Poems" do
   describe "detailed" do
+    before(:each) do
+      create_admin(:email=>'admin@example.com')
+      login('admin@example.com')
+    end
+
     it "layout" do
       visit detailed_poems_path
     end

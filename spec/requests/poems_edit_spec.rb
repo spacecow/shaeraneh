@@ -3,6 +3,8 @@ require 'spec_helper'
 describe "Poems" do
   describe "edit" do
     before(:each) do
+      create_admin(:email=>'admin@example.com')
+      login('admin@example.com')
       poem = create_poem('alpha')
       visit edit_poem_path(poem)
     end

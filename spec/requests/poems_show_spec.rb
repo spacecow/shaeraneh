@@ -8,16 +8,31 @@ describe "Poems" do
       @poem.verses << create_verse("alpha")
       @poem.verses << create_verse("beta")
       @poem.verses << create_verse("gamma")
-      visit poem_path(@poem)
     end
 
-    it "list verses" do
+    it "member list verses" do
+      visit poem_path(@poem)
+      tablerow(0).should eq ["alpha"]
+      tablerow(1).should eq ["beta"]
+      tablerow(2).should eq ["gamma"]
+    end
+
+    it "admin list verses" do
+      create_admin(:email=>'admin@example.com')
+      login('admin@example.com')
+      visit poem_path(@poem)
       tablerow(0).should eq ["alpha","","▼"]
       tablerow(1).should eq ["beta","▲" ,"▼"]
       tablerow(2).should eq ["gamma","▲" ,""]
     end
 
     context "change position" do
+      before(:each) do
+        create_admin(:email=>'admin@example.com')
+        login('admin@example.com')
+        visit poem_path(@poem)
+      end
+
       it "descend verse" do
         row(1).click_link "▲"
       end

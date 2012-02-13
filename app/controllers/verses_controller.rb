@@ -1,5 +1,6 @@
 class VersesController < ApplicationController
   include PosController
+  load_and_authorize_resource
 
   private
 

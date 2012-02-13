@@ -2,6 +2,11 @@
 require 'spec_helper'
 
 describe "Words" do
+  before(:each) do
+    create_admin(:email=>'admin@example.com')
+    login('admin@example.com')
+  end
+
   context "new, layout, no last word" do
     before(:each){ visit new_word_path }
 

@@ -4,6 +4,8 @@ describe "Words" do
   describe "edit" do
     context "layout, word with one definition" do
       before(:each) do
+        create_admin(:email=>'admin@example.com')
+        login('admin@example.com')
         word = create_word("cat","has a tail")
         visit edit_word_path(word) 
       end

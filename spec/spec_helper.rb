@@ -24,3 +24,12 @@ end
 def create_user(email)
   Factory(:user,email:email)
 end
+
+def controller_actions(controller)
+  Rails.application.routes.routes.inject({}) do |hash, route|
+    if route.requirements[:controller] == controller && !route.verb.nil?
+      hash[route.requirements[:action]] = route.verb.downcase.empty? ? "get" : route.verb.downcase
+    end
+    hash
+  end
+end

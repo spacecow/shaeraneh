@@ -1,6 +1,9 @@
 class PoemsController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:index,:detailed]
+  
+
   def show
-    @poem = Poem.find(params[:id])
     @verses = @poem.verses.order(:pos)
   end
 
@@ -14,13 +17,11 @@ class PoemsController < ApplicationController
   end
 
   def new
-    @poem = Poem.new
     @last_verses = Poem.last ? Poem.last.verses : []
   end
 
   def create
-    @poem = Poem.new(params[:poem])
-    if params[:poem][:content].empty?
+    if params[:poem] && params[:poem][:content].empty?
       @poem.errors.add(:content,"can't be blank")
       @last_verses = Poem.last ? Poem.last.verses : []
       render :new and return 
@@ -39,18 +40,16 @@ class PoemsController < ApplicationController
   end
 
   def edit
-    @poem = Poem.find(params[:id])
   end
 
   def update
-    @poem = Poem.find(params[:id])
     if @poem.update_attributes(params[:poem])
       redirect_to detailed_poems_path, :notice => updated(:poem)
     end
   end
 
   def destroy
-    Poem.find(params[:id]).destroy
+    @poem.destroy
     redirect_to poems_path, :notice => deleted(:poem)
   end
 
