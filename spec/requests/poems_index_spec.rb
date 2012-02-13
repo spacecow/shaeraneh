@@ -3,17 +3,19 @@ require 'spec_helper'
 
 describe "Poems" do
   describe "index" do
-    context "general layout" do
+    context "member layout" do
       before(:each) do
         visit poems_path
       end
 
-      it "has a title" do
-        page.should have_title("Poems")
-      end
+      context "member layout" do
+        it "has a title" do
+          page.should have_title("Poems")
+        end
 
-      it "has no link to a new poem" do
-        page.should_not have_link("New Poem")
+        it "has no link to a new poem" do
+          page.should_not have_link("New Poem")
+        end
       end
     end
 
@@ -32,7 +34,7 @@ describe "Poems" do
       end
     end
 
-    context "admin links" do
+    context "admin links to" do
       before(:each) do
         create_admin(:email=>'admin@example.com')
         login('admin@example.com')
@@ -52,7 +54,7 @@ describe "Poems" do
       end
     end
 
-    context "link to" do
+    context "member links to" do
       it "show poem" do
         poem = create_poem("alpha")
         visit poems_path
@@ -93,10 +95,38 @@ describe "Poems" do
       end
     end
 
-    context "list poems" do
+    context "admin list poems" do
+      before(:each) do
+        create_admin(:email=>'admin@example.com')
+        login('admin@example.com')
+        poem = Factory(:poem)
+        poem.verses << create_verse('betad')
+        visit poems_path
+      end
+
+      it "has edit link" do
+        table.should have_link('Edit')
+      end
+
+      it "has delete link" do
+        table.should have_link('Del')
+      end
+    end
+    
+    context "member list poems" do
       before(:each) do
         poem = Factory(:poem)
         poem.verses << create_verse('betad')
+      end
+
+      it "has no edit link" do
+        visit poems_path
+        table.should_not have_link('Edit')
+      end
+
+      it "has no delete link" do
+        visit poems_path
+        table.should_not have_link('Del')
       end
 
       it "show in a table" do
@@ -109,15 +139,15 @@ describe "Poems" do
         poem2 = Factory(:poem)
         poem2.verses << create_verse('alphac')
         visit poems_path
-        tablemaps.first.should eq [['alphac','Edit Del']]
-        tablemaps.last.should eq [['betad','Edit Del']]
+        tablemaps.first.should eq [['alphac','']]
+        tablemaps.last.should eq [['betad','']]
       end
 
       it "poems starting with the same letter are grouped toghether" do
         poem2 = Factory(:poem)
         poem2.verses << create_verse('bobyd')
         visit poems_path
-        tablemap.should eq [['betad','Edit Del'],['bobyd','Edit Del']]
+        tablemap.should eq [['betad',''],['bobyd','']]
       end
     end
 
