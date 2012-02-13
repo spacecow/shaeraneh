@@ -1,7 +1,11 @@
 <div class="word">
   <div id="word">
     <div id="base">
-      <%= link_to word.name, edit_word_path(word) %>
+      <% if can? :edit, word %>
+        <%= link_to word.name, edit_word_path(word) %>
+      <% else %>
+        <%= word.name %>
+      <% end %>
     </div>
     <div id="forms">
       <%= render word.forms %>

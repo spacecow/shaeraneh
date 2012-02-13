@@ -14,7 +14,20 @@ describe "Words" do
       end
     end #layout, without words
 
-    context "layout, with one word, one definition" do
+    context "admin layout" do
+      before(:each) do
+        create_admin(:email=>'admin@example.com')
+        login('admin@example.com')
+        create_word("cat","is an animal")
+        visit words_path
+      end
+
+      it "the word is a link" do
+        div('word',0).should have_link('cat')
+      end
+    end
+
+    context "member layout, with one word, one definition" do
       before(:each) do
         create_word("cat","is an animal")
         visit words_path
@@ -22,10 +35,6 @@ describe "Words" do
 
       it "has a div surrounding it" do
         divs_no('word').should be(1)
-      end
-
-      it "the word is a link" do
-        div('word',0).should have_link('cat')
       end
 
       it "the word is diplayed in the div" do
