@@ -10,6 +10,7 @@ gem 'compass', '>= 0.12.alpha.0'
 gem 'sunspot_rails'
 gem 'redis'
 gem 'yajl-ruby'
+gem 'cancan'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

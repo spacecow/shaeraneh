@@ -1,3 +1,9 @@
 <div id="user_nav">
-  <%= link_to ft(:login), login_path %>
+  <% if current_user %>
+    <%= mess(:logged_in_as,name:current_user.email) %>
+    <%= link_to jt(:logout), logout_path %>
+  <% else %>
+    <%= link_to jt(:signup), signup_path %>
+    <%= link_to ft(:login), login_path %>
+  <% end %>
 </div>

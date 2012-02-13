@@ -1,8 +1,9 @@
 Shaeraneh::Application.routes.draw do
   get 'login' => 'sessions#new'
+  get 'logout' => 'sessions#destroy'
   get 'signup' => 'users#new'
   resources :sessions, :only => [:new,:create]
-  resources :users, :only => :new
+  resources :users, :only => [:show,:new,:create]
   
   resources :locales, :only => :index
   resources :translations, :only => [:index,:create] do
@@ -23,5 +24,6 @@ Shaeraneh::Application.routes.draw do
       end
     end
   end
+  get 'welcome' => 'poems#index'
   root :to => 'poems#index'
 end

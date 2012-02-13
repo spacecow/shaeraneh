@@ -14,6 +14,7 @@ Factory.define :verse do |f|
 end
 
 Factory.define :user do |f|
+  f.password 'secret'
 end
 
 Factory.define :word do |f|
