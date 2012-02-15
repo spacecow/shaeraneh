@@ -1,22 +1,25 @@
-Factory.define :definition do |f|
+FactoryGirl.define do
+factory :definition do
 end
 
-Factory.define :form do |f|
+factory :form do
 end
 
-Factory.define :locale do |f|
+factory :locale do
 end
 
-Factory.define :poem do |f|
+factory :poem do
 end
 
-Factory.define :verse do |f|
+factory :verse do
 end
 
-Factory.define :user do |f|
-  f.email 'test@email.com'
-  f.password 'secret'
+factory :user do 
+  email 'test@email.com'
+  password 'secret'
 end
 
-Factory.define :word do |f|
+factory :word do
+end
+
 end

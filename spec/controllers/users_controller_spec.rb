@@ -12,6 +12,7 @@ describe UsersController do
           send(req, action, id:@model.id)
           response.redirect_url.should_not eq login_url
         end
+      elsif action == 'signup_confirmation'
       else
         it "should not reach the #{action} page" do
           send(req, action, id:@model.id)
@@ -33,6 +34,7 @@ describe UsersController do
             send(req, action, id:@model.id)
             response.redirect_url.should_not eq welcome_url
           end
+        elsif action == 'signup_confirmation'
         else
           it "should not reach the #{action} page" do
             send(req, action, id:@model.id)
@@ -53,6 +55,7 @@ describe UsersController do
             send(req, action, id:@model.id)
             response.redirect_url.should_not eq welcome_url
           end
+        elsif action == 'signup_confirmation'
         else
           it "should not reach the #{action} page" do
             send(req, action, id:@model.id)
@@ -73,6 +76,7 @@ describe UsersController do
             send(req, action, id:@model.id)
             response.redirect_url.should_not eq welcome_url
           end
+        elsif action == 'signup_confirmation'
         else
           it "should not reach the #{action} page" do
             send(req, action, id:@model.id)
@@ -93,6 +97,7 @@ describe UsersController do
             send(req, action, id:@model.id)
             response.redirect_url.should_not eq welcome_url
           end
+        elsif action == 'signup_confirmation'
         else
           it "should not reach the #{action} page" do
             send(req, action, id:@model.id)
@@ -113,6 +118,7 @@ describe UsersController do
             send(req, action, id:@model.id)
             response.redirect_url.should_not eq welcome_url
           end
+        elsif action == 'signup_confirmation'
         else
           it "should not reach the #{action} page" do
             send(req, action, id:@model.id)

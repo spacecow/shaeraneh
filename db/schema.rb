@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212074644) do
+ActiveRecord::Schema.define(:version => 20120215043700) do
 
   create_table "definitions", :force => true do |t|
     t.text     "content"
@@ -23,12 +23,6 @@ ActiveRecord::Schema.define(:version => 20120212074644) do
   create_table "forms", :force => true do |t|
     t.string   "name"
     t.integer  "word_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "letters", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,6 +47,14 @@ ActiveRecord::Schema.define(:version => 20120212074644) do
     t.string   "initial"
   end
 
+  create_table "signup_tokens", :force => true do |t|
+    t.string   "token"
+    t.string   "email"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "translations", :force => true do |t|
     t.string   "key"
     t.string   "value"
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20120212074644) do
     t.integer  "roles_mask"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "userid"
   end
 
   create_table "verses", :force => true do |t|

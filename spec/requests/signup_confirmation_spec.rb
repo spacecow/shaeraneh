@@ -1,0 +1,1 @@
+/home/jsveholm/apps/basiq/spec/request/signup_confirmation_spec.rb

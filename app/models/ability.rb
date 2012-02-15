@@ -2,12 +2,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :create, User
+    can [:create,:signup_confirmation], User
     can [:index,:show], Poem
     can :index, Word
     if user
       can :show, User
-      cannot :create, User
+      cannot [:create,:signup_confirmation], User
       if user.role? :admin
         can :manage, Poem
         can :manage, Locale

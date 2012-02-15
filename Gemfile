@@ -11,6 +11,7 @@ gem 'sunspot_rails'
 gem 'redis'
 gem 'yajl-ruby'
 gem 'cancan'
+gem 'email_spec'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
@@ -28,7 +29,7 @@ group :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
   gem 'libnotify'
