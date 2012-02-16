@@ -11,8 +11,11 @@ describe "Site" do
       it "has a link to the words index" do
         site_nav.should have_link('Words')
       end
-      it "has no link to the translations index " do
+      it "has no link to the translations index" do
         site_nav.should_not have_link('Translations')
+      end
+      it "has a link to the sources index" do
+        site_nav.should have_link('Sources')
       end
     end
 
@@ -39,6 +42,10 @@ describe "Site" do
     it "words index" do
       site_nav.click_link 'Words'
       current_path.should eq words_path
+    end
+    it "sources index" do
+      site_nav.click_link 'Sources'
+      current_path.should eq sources_path
     end
   end
 

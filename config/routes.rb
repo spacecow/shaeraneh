@@ -33,4 +33,6 @@ Shaeraneh::Application.routes.draw do
   end
   get 'welcome' => 'poems#index'
   root :to => 'poems#index'
+
+  resources :sources, :only => [:show,:index,:create,:update]
 end

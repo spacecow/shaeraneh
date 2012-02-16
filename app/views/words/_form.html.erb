@@ -2,7 +2,7 @@
   <%= f.input :name, :label => ft(:word) %>
   <% @word.definitions.each_with_index do |definition,i| %>
     <%= f.inputs :for => [:definitions,definition] do |ref| %>
-      <%= render "definition_fields", f:ref, i:i %>
+      <%= render "definition_fields", f:ref, i:i, definition:definition %>
     <% end %>
   <% end %>
   <li><%= link_to_add_fields add(:definition), f, :definitions %></li>

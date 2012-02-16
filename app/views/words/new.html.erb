@@ -2,6 +2,13 @@
 
 <div id="last_word">
   <h2>Last Word</h2>
+  <%= render @last_word if @last_word %>
+</div>
+<div class="clear"></div>
+
+<!--
+<div id="last_word">
+  <h2>Last Word</h2>
   <div id="word">
     <span class="label">
       <%= ft(:word) %>:
@@ -22,5 +29,6 @@
   <% end %>
 </div>
 <div class="clear"></div>
+-->
 
 <%= render 'form' %>

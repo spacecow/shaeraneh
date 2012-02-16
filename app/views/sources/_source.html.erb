@@ -1,0 +1,9 @@
+<div class="source">
+  <div id="name">
+    <%= source.name %>
+  </div>
+  <div id="actions">
+    <%= link_to t(:edit), id:source.id if can? :edit, source %>
+  </div>
+  <div class="clear"></div>
+</div>

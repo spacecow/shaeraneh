@@ -1,5 +1,7 @@
 class Word < ActiveRecord::Base
   has_many :definitions, :dependent => :destroy 
+  has_many :sources, :through => :definitions
+
   accepts_nested_attributes_for :definitions, :reject_if => lambda{|e| e[:content].blank? }, allow_destroy:true
   has_many :forms, :dependent => :destroy
 

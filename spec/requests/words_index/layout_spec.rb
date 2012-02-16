@@ -50,6 +50,42 @@ describe "Words" do
       end
     end #layout, with one word, one definition 
 
+    context "member layout, with one word, one definition, one source" do
+      before(:each) do
+        cat = Factory(:word,name:'cat')
+        definition = Factory(:definition,content:'is an animal')
+        @ne = Factory(:source,name:'NE')
+        cat.definitions << definition
+        @ne.definitions << definition
+        visit words_path
+      end
+
+      it "has a div surrounding it" do
+        divs_no('word').should be(1)
+      end
+
+      it "the word is diplayed in the div" do
+        div('word',0).div('word').should have_content('cat')
+      end
+
+      it "has one definition div" do
+        div('word',0).divs_no('definition').should be(1)
+      end
+
+      it "the definition is diplayed in the div" do
+        div('word',0).div('definition',0).should have_content('1. is an animal - NE')
+      end
+
+      it "the source is a link" do
+        div('definition',0).should have_link('NE')
+      end
+
+      it "the source is linked to the source show page" do
+        div('definition',0).click_link 'NE'
+        current_path.should eq source_path(@ne)
+      end
+    end #layout, with one word, one definition, one source
+
     context "layout, with one word, two definitions" do
       before(:each) do
         create_word("cat","is an animal","has a tail")

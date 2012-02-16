@@ -12,6 +12,9 @@ en:
   poem: 
     one: 'Poem'
     other: 'Poems'
+  source:
+    one: 'Source'
+    other: 'Sources'
   translation:
     one: 'Translation'
     other: 'Translations'
@@ -44,6 +47,7 @@ en:
       key: 'Key'
       locale: 'Locale'
       login: 'Login'
+      source: 'Source'
       word: 'Word'
 
   labels:

@@ -5,6 +5,7 @@ class Ability
     can [:create,:signup_confirmation], User
     can [:index,:show], Poem
     can :index, Word
+    can [:show,:index], Source
     if user
       can :show, User
       cannot [:create,:signup_confirmation], User
@@ -14,6 +15,7 @@ class Ability
         can :manage, Translation
         can :manage, Verse
         can :manage, Word
+        can :manage, Source
       end
       if user.role? :god
         can :manage, :all
