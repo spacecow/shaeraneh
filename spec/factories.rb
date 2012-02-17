@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :category do
+  end
+
   factory :definition do
   end
 

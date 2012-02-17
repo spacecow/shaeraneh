@@ -1,11 +1,13 @@
 <%= semantic_form_for @word do |f| %>
   <%= f.input :name, :label => ft(:word) %>
+  <%= f.input :form_tokens, :label => ft(:forms), :input_html => {"data-pre" => @word.forms.map(&:attributes).to_json} %>
   <% @word.definitions.each_with_index do |definition,i| %>
     <%= f.inputs :for => [:definitions,definition] do |ref| %>
       <%= render "definition_fields", f:ref, i:i, definition:definition %>
     <% end %>
   <% end %>
   <%= link_to add(:definition), nil, remote:true, id:'add_definition' %>
-  <%= f.input :form_tokens, :label => ft(:forms), :input_html => {"data-pre" => @word.forms.map(&:attributes).to_json} %>
+  <%= f.input :category_tokens, :label => pl(:category,1) %>
+  <%#, :input_html => {"data-pre" => @word.categories.map(&:attributes).to_json} %>
   <%= submit f,@word %>
 <% end %>

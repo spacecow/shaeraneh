@@ -39,6 +39,11 @@ describe "Words" do
     it "has a form field" do
       value('Forms').should be_nil
     end
+
+    it "has a category field" do
+      value('Category').should be_nil
+    end
+
     it "has a create button" do
       page.should have_button('Create Word')
     end

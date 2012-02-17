@@ -43,3 +43,5 @@ d53029: !ruby/object:Dooby::Task
   todo: login page :done
 cd4c9d: !ruby/object:Dooby::Task 
   todo: add source field :done
+4d1aea: !ruby/object:Dooby::Task 
+  todo: add category :done

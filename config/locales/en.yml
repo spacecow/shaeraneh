@@ -6,6 +6,9 @@ en:
   logout: 'Logout'
   signup: 'Signup'
 
+  category:
+    one: 'Category'
+    other: 'Categories'
   definition:
     one: 'Definition'
     other: 'Definitions'
