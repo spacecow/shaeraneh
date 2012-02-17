@@ -54,6 +54,28 @@ describe "Words" do
         click_button 'Create Word'
       end.should change(Definition,:count).by(0)
     end
+
+    context "errors" do
+      before(:each) do
+        fill_in 'Word', with:''
+      end
+
+      it "name cannot be blank" do
+        click_button 'Create Word'
+        li(:name).should have_blank_error
+      end
+
+      it "there are ten definition fields" do
+        click_button 'Create Word'
+        lis_no(:content).should be(10)
+      end
+
+      it "with a def filled in, there are still 10 def fields" do
+        fill_in 'Definition', with:'animal'       
+        click_button 'Create Word'  
+        lis_no(:content).should be(10)
+      end
+    end
   end
 
   context "new, create word, a definition" do

@@ -9,7 +9,12 @@ class WordsController < ApplicationController
   end
 
   def new
-    2.times{@word.definitions.build}
+    @word.definitions.build
+    9.times do
+      definition = Definition.new
+      definition.hide = true
+      @word.definitions << definition
+    end
     @last_word = Word.last
   end
   
@@ -18,6 +23,11 @@ class WordsController < ApplicationController
       create_links(@word)
       redirect_to new_word_path, :notice => created(:word)
     else
+      (10-@word.definitions.length).times do
+        definition = Definition.new
+        definition.hide = true
+        @word.definitions << definition
+      end
       render :new
     end
   end

@@ -5,7 +5,7 @@
       <%= render "definition_fields", f:ref, i:i, definition:definition %>
     <% end %>
   <% end %>
-  <li><%= link_to_add_fields add(:definition), f, :definitions %></li>
+  <%= link_to add(:definition), nil, remote:true, id:'add_definition' %>
   <%= f.input :form_tokens, :label => ft(:forms), :input_html => {"data-pre" => @word.forms.map(&:attributes).to_json} %>
   <%= submit f,@word %>
 <% end %>

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Sources", focus:true do
+describe "Sources" do
   context "index, update" do
     before(:each) do
       create_admin(:email=>'admin@example.com')

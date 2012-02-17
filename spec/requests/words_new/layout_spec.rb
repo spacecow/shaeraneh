@@ -22,8 +22,8 @@ describe "Words" do
     it "2nd definition field should be empty" do
       value('Definition',1).should be_empty
     end
-    it "there are two definition fields" do
-      lis_no(:content).should be(2)
+    it "there are ten definition fields" do
+      lis_no(:content).should be(10)
     end
 
     it "has a 1st blank source field" do
@@ -33,7 +33,7 @@ describe "Words" do
       value('Source',1).should be_blank 
     end
     it "there are two source fields" do
-      lis_no(:source).should be(2)
+      lis_no(:source).should be(10)
     end
 
     it "has a form field" do

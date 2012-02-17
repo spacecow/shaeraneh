@@ -1,8 +1,11 @@
-<li id="word_definitions_attributes_<%= i %>_content_input">
+<li id="content_<%= i %>" class="definition <%= definition.hide ? 'hide' : '' %>">
   <%= f.label :content, ft(:definition), :class => :inline %>
   <%= f.check_box :_destroy, :class => :inline %>
   <%= f.label :_destroy, remove(:definition), :class => "inline margin" %>
   <div class="clear"></div>
   <%= f.text_area :content %>
 </li>
-<%= f.input :source_token, label:ft(:source), :input_html => {:class => :source, "data-pre" => definition.source_attributes} %>
+<li id="source_<%= i %>" class="<%= definition.hide ? 'hide' : '' %>">
+  <%= f.label :source_token, ft(:source) %>
+  <%= f.text_field :source_token, "data-pre" => definition.source_attributes %>
+</li>
