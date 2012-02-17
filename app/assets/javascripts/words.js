@@ -6,6 +6,7 @@ $(function(){
     preventDuplicates: true,
     hintText: "Type in a form",
     searchingText: "",
+    tokenDelimiter: "fe",
     theme: "facebook"
   });
 });
