@@ -1,0 +1,1 @@
+/home/jsveholm/apps/basiq/spec/mailers/user_mailer_spec.rb

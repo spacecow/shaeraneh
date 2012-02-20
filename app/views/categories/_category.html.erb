@@ -1,0 +1,8 @@
+<div class="category">
+  <div id="name">
+    <%= category.name %>
+  </div>
+  <div id="actions">
+    <%= link_to jt(:edit), id:category.id if can? :edit, category %>
+  </div>
+</div>

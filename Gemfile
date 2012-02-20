@@ -10,6 +10,9 @@ gem 'compass', '>= 0.12.alpha.0'
 gem 'sunspot_rails'
 gem 'redis'
 gem 'yajl-ruby'
+gem 'cancan'
+gem 'email_spec'
+gem 'ancestry'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
@@ -27,7 +30,8 @@ group :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'factory_girl'
+  gem 'factory_girl', '2.1.0'
+  gem 'factory_girl_rails', '1.2.0'
   gem 'capybara'
   gem 'launchy'
   gem 'libnotify'

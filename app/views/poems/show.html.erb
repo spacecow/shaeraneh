@@ -2,8 +2,12 @@
 <% @verses.each do |verse| %>
   <tr>
     <td><%= verse.content %></td>
-    <td><%= link_to "▲", descend_poem_verse_path(@poem,verse), :method => :put unless @verses.first == verse %></td>
-    <td><%= link_to "▼", ascend_poem_verse_path(@poem,verse), :method => :put unless @verses.last == verse %></td>
+    <% if can? :descend, verse %>
+      <td><%= link_to "▲", descend_poem_verse_path(@poem,verse), :method => :put unless @verses.first == verse %></td>
+    <% end %>
+    <% if can? :ascend, verse %>
+      <td><%= link_to "▼", ascend_poem_verse_path(@poem,verse), :method => :put unless @verses.last == verse %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,5 @@
+<%= title pl(:category) %>
+
+<%= render 'categories', categories:@categories unless @categories.empty? %>
+
+<%= render 'form' if can? :new, Category %>

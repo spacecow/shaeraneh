@@ -1,9 +1,17 @@
 Shaeraneh::Application.routes.draw do
   get 'login' => 'sessions#new'
-  get 'signup' => 'users#new'
+  get 'logout' => 'sessions#destroy'
   resources :sessions, :only => [:new,:create]
-  resources :users, :only => :new
+
   
+  get 'signup' => 'users#new'
+  match 'signup_confirmation/:token' => 'users#signup_confirmation', :as => :signup_confirmation
+  resources :users, :only => [:show,:new,:create] do
+    collection do
+      get :signup_confirmation
+    end
+  end
+
   resources :locales, :only => :index
   resources :translations, :only => [:index,:create] do
     collection do
@@ -16,12 +24,18 @@ Shaeraneh::Application.routes.draw do
     collection do
       get 'detailed'
     end
-    resources :verses do
+    resources :verses, :except => [:show,:index,:new,:create,:edit,:update,:destroy] do
       member do
         put 'ascend'
         put 'descend'
       end
     end
   end
+
+  resources :categories, :only => [:index,:create,:update]
+
+  get 'welcome' => 'poems#index'
   root :to => 'poems#index'
+
+  resources :sources, :only => [:show,:index,:create,:update]
 end

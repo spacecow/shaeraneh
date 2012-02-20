@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe "Poems" do
   describe "new" do
-    it "layout" do
-      visit new_poem_path
-      page.should have_title("New Poem")
-      find_field(:content).value.should eq ""
+    before(:each) do
+      create_admin(:email=>'admin@example.com')
+      login('admin@example.com')
     end
 
     context "create poem" do
@@ -14,11 +13,15 @@ describe "Poems" do
         fill_in "Content", :with => "alpha \t\t beta\r\n gamma \t\tdelta"
       end
 
-      it "create verses" do
+      it "adds verses to the database" do
         lambda do
-          lambda do
-            click_button "Create Poem"
-          end.should change(Verse,:count).by(4)
+          click_button "Create Poem"
+        end.should change(Verse,:count).by(4)
+      end
+
+      it "adds a poem to the database" do
+        lambda do
+          click_button "Create Poem"
         end.should change(Poem,:count).by(1)
       end
 

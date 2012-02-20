@@ -1,6 +1,7 @@
 class WordsController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @words = Word.scoped
     respond_to do |f|
       f.html
       f.json {render :json => []}
@@ -8,27 +9,33 @@ class WordsController < ApplicationController
   end
 
   def new
-    @word = Word.new
-    2.times{@word.definitions.build}
+    @word.definitions.build
+    9.times do
+      definition = Definition.new
+      definition.hide = true
+      @word.definitions << definition
+    end
     @last_word = Word.last
   end
   
   def create
-    @word = Word.new(params[:word])
     if @word.save
       create_links(@word)
       redirect_to new_word_path, :notice => created(:word)
     else
+      (10-@word.definitions.length).times do
+        definition = Definition.new
+        definition.hide = true
+        @word.definitions << definition
+      end
       render :new
     end
   end
 
   def edit
-    @word = Word.find(params[:id])
   end
 
   def update
-    @word = Word.find(params[:id])
     if @word.update_attributes(params[:word])
       redirect_to words_path
     else

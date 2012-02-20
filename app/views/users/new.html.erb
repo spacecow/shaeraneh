@@ -1,0 +1,9 @@
+<%= title jt(:signup) %>
+
+<%= semantic_form_for @user do |f| %>
+  <%= f.input :userid %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation, label:ft(:confirmation) %>
+  <%= f.submit create(:user), :class=>:submit %>
+<% end %>

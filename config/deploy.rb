@@ -23,6 +23,7 @@ namespace :deploy do
   task :symlink_shared do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/words.js #{release_path}/app/assets/javascripts/words.js"    
+    run "ln -nfs #{shared_path}/config/translations.js #{release_path}/app/assets/javascripts/translations.js"    
   end
 end
 

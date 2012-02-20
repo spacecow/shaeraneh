@@ -1,6 +1,8 @@
 <%= title pl(:poem) %>
 
-<%= link_to new(:poem), new_poem_path %>
+<div id="top_links">
+  <%= link_to new(:poem), new_poem_path if can? :new, Poem %>
+</div>
 
 <% @poemgroups.each do |letter,group| %>
 <table>
@@ -11,11 +13,13 @@
     <tr>
       <td><%= link_to poem.first_verse, poem %></td>
       <td>
-        <%= link_to t(:edit), edit_poem_path(poem) %> <%= link_to t(:del), poem, :confirm => sure?, :method => :delete %>
+        <%= link_to t(:edit), edit_poem_path(poem) if can? :edit, poem %> <%= link_to t(:del), poem, :confirm => sure?, :method => :delete if can? :destroy, poem %>
       </td>
     </tr>
   <% end %>
 </table>
 <% end %>
 
-<%= link_to new(:poem), new_poem_path %>
+<div id="bottom_links">
+  <%= link_to new(:poem), new_poem_path if can? :new, Poem %>
+</div>

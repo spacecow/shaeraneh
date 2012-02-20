@@ -1,0 +1,7 @@
+<%= formtitle @category %>
+
+<%= semantic_form_for @category do |f| %>
+  <%= f.input :name %>
+  <%= f.input :parent_id, :as => :select, :collection => @categories %>
+  <%= submit(f,@category) %>
+<% end %>

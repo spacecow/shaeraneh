@@ -1,11 +1,13 @@
 class TranslationsController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:index,:update_multiple]
+
   def index
     @translations = TRANSLATION_STORE
     @translation = Translation.new
   end
 
   def create
-    @translation = Translation.new(params[:translation])
     if @translation.valid?
       I18n.backend.store_translations(@translation.locale.name, {@translation.key => @translation.value}, escape:false)
       redirect_to translations_path
