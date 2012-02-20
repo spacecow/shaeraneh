@@ -45,7 +45,7 @@ describe "Words" do
 
     context "with existing category" do
       before(:each) do
-        category = Factory(:category,name:'poem')
+        category = create_category('poem')
         fill_in 'Category', with:category.id 
       end
 
@@ -69,8 +69,8 @@ describe "Words" do
 
     context "with existing categories" do
       before(:each) do
-        poem = Factory(:category,name:'poem')
-        novel = Factory(:category,name:'novel')
+        poem = create_category('poem')
+        novel = create_category('novel')
         fill_in 'Category', with:"#{poem.id}, #{novel.id}" 
       end
 
@@ -119,7 +119,7 @@ describe "Words" do
 
     context "with new category that already exists" do
       before(:each) do
-        Factory(:category,name:'poem')
+        create_category('poem')
         fill_in 'Category', with:'poem' 
       end
 
@@ -183,7 +183,7 @@ describe "Words" do
 
     context "treed category, with a new category" do
       before(:each) do
-        Factory(:category, name:'poem')
+        create_category('poem')
         fill_in 'Category', with:'poem\Limmerick'
       end
 

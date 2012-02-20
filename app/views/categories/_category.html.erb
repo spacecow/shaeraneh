@@ -1,6 +1,6 @@
 <div class="category">
   <div id="name">
-    <%= link_to category.name, category if can? :show, category %>
+    <%= link_to category.name(get_language), category if can? :show, category %>
   </div>
   <div id="actions">
     <%= link_to jt(:edit), id:category.id if can? :edit, category %>

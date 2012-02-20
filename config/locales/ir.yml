@@ -1,4 +1,4 @@
-en:
+ir:
   del: 'Del'
   delete: 'Delete'
   en: 'English'
@@ -37,6 +37,7 @@ en:
       messages:
         blank: "can't be blank"
         confirmation: "doesn't match confirmation"
+        taken: 'is already taken'
   
   alerts:
     invalid_login_or_password: 'Invalid login or password.'

@@ -1,7 +1,7 @@
 <%= formtitle @category %>
 
 <%= semantic_form_for @category do |f| %>
-  <%= f.input :name %>
+  <%= f.input "name_#{get_language}", label:ft(:name) %>
   <%= f.input :parent_id, :as => :select, :collection => @categories.map{|e| [e.names_depth_cache_ir,e.id]} %>
   <%= submit(f,@category) %>
 <% end %>
