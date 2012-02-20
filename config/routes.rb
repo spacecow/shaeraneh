@@ -32,7 +32,7 @@ Shaeraneh::Application.routes.draw do
     end
   end
 
-  resources :categories, :only => [:index,:create,:update]
+  resources :categories, :only => [:show,:index,:create,:update,:destroy]
 
   get 'welcome' => 'poems#index'
   root :to => 'poems#index'

@@ -5,10 +5,12 @@ describe "Categories" do
     before(:each) do
       create_admin(:email=>'admin@example.com')
       login('admin@example.com')
-      Factory(:category,name:'programming')
+      programming = Factory(:category,name:'programming')
       @ruby = Factory(:category,name:'ruby')
+      Factory(:category, name:'io', parent_id:programming.id)
       visit categories_path
       div(:category,0).click_link('Edit')
+      value('Name').should eq 'programming'
       fill_in 'Name', with:'red'
       select 'ruby', from:'Parent'
     end
@@ -21,7 +23,12 @@ describe "Categories" do
 
     it "updates the name of the category" do
       click_button 'Update Category'
-      Category.first.name.should eq 'red'
+      Category.all.map(&:name).should eq ['red','ruby','io']
+    end
+
+    it "updates the names_depth_cache of the category" do
+      click_button 'Update Category'
+      Category.all.map(&:names_depth_cache_ir).should eq ['ruby\red','ruby','ruby\red\io']
     end
 
     it "updates the parent of the category" do

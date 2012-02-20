@@ -6,7 +6,7 @@ class Category < ActiveRecord::Base
   before_save :cache_ancestry
 
   validates :name, presence:true, uniqueness:true
-has_ancestry #:orphan_strategy => :rootify
+  has_ancestry :orphan_strategy => :rootify
 
   class << self
     def token(s,a)

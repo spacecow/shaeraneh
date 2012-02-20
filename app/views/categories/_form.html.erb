@@ -2,6 +2,6 @@
 
 <%= semantic_form_for @category do |f| %>
   <%= f.input :name %>
-  <%= f.input :parent_id, :as => :select, :collection => @categories %>
+  <%= f.input :parent_id, :as => :select, :collection => @categories.map{|e| [e.names_depth_cache_ir,e.id]} %>
   <%= submit(f,@category) %>
 <% end %>

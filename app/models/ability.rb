@@ -6,7 +6,7 @@ class Ability
     can [:index,:show], Poem
     can :index, Word
     can [:show,:index], Source
-    can :index, Category
+    can [:show,:index], Category
     if user
       can :show, User
       cannot [:create,:signup_confirmation], User

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Sources", focus:true do
+describe "Sources" do
   context "index, member layout" do
     before(:each){ visit sources_path }
 
