@@ -48,12 +48,15 @@ ir:
     labels:
       confirmation: 'Confirmation'
       definition: 'Definition'
+      email: 'Email'
       forms: 'Forms'
       key: 'Key'
       locale: 'Locale'
       login: 'Login'
       name: 'Name'
+      password: 'Password'
       source: 'Source'
+      userid: 'Userid'
       word: 'Word'
 
   labels:

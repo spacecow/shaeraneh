@@ -13,6 +13,10 @@ class Category < ActiveRecord::Base
   end
 
   class << self
+    def separate(lang,*cats)
+      cats.join('\\')
+    end
+
     def token(s,a)
       if s =~ /^\d+$/
         cat = find(s) if exists?(s)
