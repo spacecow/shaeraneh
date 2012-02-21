@@ -2,5 +2,6 @@
   <%= link_to pl(:poem), poems_path if can? :index, Poem %>
   <%= link_to pl(:word), words_path if can? :index, Word %>
   <%= link_to pl(:translation), translations_path if can? :index, Translation %>
+  <%= link_to pl(:source), sources_path if can? :index, Source %>
 </div>
 <div class="clear"></div>

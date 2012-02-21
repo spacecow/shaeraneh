@@ -1,0 +1,6 @@
+<%= title @category.name(get_language) %>
+
+<div id="bottom_links">
+  <%= link_to jt(:edit), categories_path(id:@category.id) if can? :edit, @category %>
+  <%= link_to jt(:delete), @category, :method => :delete, confirm:sure? if can? :destroy, @category %>
+</div>

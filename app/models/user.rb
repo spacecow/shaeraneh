@@ -1,12 +1,14 @@
 class User < ActiveRecord::Base
   before_create :set_role
   before_save :encrypt_password
+  has_one :signup_token
   
   attr_accessor :password
 
   validates_presence_of :password, :on=>:create
   validates_confirmation_of :password
   validates :email, presence:true, uniqueness:true
+  validates_uniqueness_of :userid, :unless => Proc.new{|user| user.userid.blank? }
 
   ADMIN     = 'admin'
   GOD       = 'god'

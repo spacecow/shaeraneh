@@ -1,0 +1,5 @@
+<%= title pl(:source) %>
+
+<%= render 'sources', sources:@sources if @sources.present? %>
+
+<%= render 'form' if can? :new, Source %>

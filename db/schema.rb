@@ -11,24 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212074644) do
+ActiveRecord::Schema.define(:version => 20120218051042) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name_ir"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ancestry"
+    t.string   "names_depth_cache_ir"
+  end
+
+  add_index "categories", ["ancestry"], :name => "index_categories_on_ancestry"
+
+  create_table "categorizations", :force => true do |t|
+    t.integer  "word_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "definitions", :force => true do |t|
     t.text     "content"
     t.integer  "word_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "source_id"
   end
 
   create_table "forms", :force => true do |t|
     t.string   "name"
     t.integer  "word_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "letters", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,6 +65,20 @@ ActiveRecord::Schema.define(:version => 20120212074644) do
     t.string   "initial"
   end
 
+  create_table "signup_tokens", :force => true do |t|
+    t.string   "token"
+    t.string   "email"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sources", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "translations", :force => true do |t|
     t.string   "key"
     t.string   "value"
@@ -68,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20120212074644) do
     t.integer  "roles_mask"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "userid"
   end
 
   create_table "verses", :force => true do |t|

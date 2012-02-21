@@ -1,0 +1,1 @@
+/home/jsveholm/apps/basiq/spec/request/categories_show/layout_spec.rb

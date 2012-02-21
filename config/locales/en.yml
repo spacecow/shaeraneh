@@ -1,17 +1,24 @@
 en:
   del: 'Del'
+  delete: 'Delete'
   en: 'English'
   edit: 'Edit'
   ir: 'Persian'
   logout: 'Logout'
   signup: 'Signup'
 
+  category:
+    one: 'Category'
+    other: 'Categories'
   definition:
     one: 'Definition'
     other: 'Definitions'
   poem: 
     one: 'Poem'
     other: 'Poems'
+  source:
+    one: 'Source'
+    other: 'Sources'
   translation:
     one: 'Translation'
     other: 'Translations'
@@ -33,6 +40,8 @@ en:
   
   alerts:
     invalid_login_or_password: 'Invalid login or password.'
+    invalid_signup_token: "Invalid signup token."
+    user_does_not_exist: 'User does not exist.'
 
   formtastic:
     labels:
@@ -42,6 +51,8 @@ en:
       key: 'Key'
       locale: 'Locale'
       login: 'Login'
+      name: 'Name'
+      source: 'Source'
       word: 'Word'
 
   labels:
@@ -58,6 +69,8 @@ en:
     sure?: "Are you sure?"
 
   notices:
+    account_activated: "Account activated. You are now logged in."
+    email_with_userinfo_has_been_sent: "An email has been sent to you with information about your account. To activate your account, make sure to click the link in the mail."
     logged_in: 'Logged in.'
     logged_out: 'Logged out.'
     signed_up_and_logged_in: 'Signed up and logged in.'
@@ -70,4 +83,6 @@ en:
 
   unauthorized:
     new:
+      user: 'You already have an account.'
+    signup_confirmation:
       user: 'You already have an account.'

@@ -1,10 +1,17 @@
 Shaeraneh::Application.routes.draw do
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
-  get 'signup' => 'users#new'
   resources :sessions, :only => [:new,:create]
-  resources :users, :only => [:show,:new,:create]
+
   
+  get 'signup' => 'users#new'
+  match 'signup_confirmation/:token' => 'users#signup_confirmation', :as => :signup_confirmation
+  resources :users, :only => [:show,:new,:create] do
+    collection do
+      get :signup_confirmation
+    end
+  end
+
   resources :locales, :only => :index
   resources :translations, :only => [:index,:create] do
     collection do
@@ -24,6 +31,11 @@ Shaeraneh::Application.routes.draw do
       end
     end
   end
+
+  resources :categories, :only => [:show,:index,:create,:update,:destroy]
+
   get 'welcome' => 'poems#index'
   root :to => 'poems#index'
+
+  resources :sources, :only => [:show,:index,:create,:update]
 end

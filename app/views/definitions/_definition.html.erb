@@ -1,3 +1,4 @@
 <div class="definition">
   <%= "#{i}. #{definition.content}" %>
+  <%= "- #{link_to definition.source.name, definition.source}".html_safe if definition.source %>
 </div>
