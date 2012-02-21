@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212074644) do
+ActiveRecord::Schema.define(:version => 20120221043434) do
 
   create_table "definitions", :force => true do |t|
     t.text     "content"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20120212074644) do
     t.integer  "roles_mask"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "userid"
   end
 
   create_table "verses", :force => true do |t|
