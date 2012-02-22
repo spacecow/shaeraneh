@@ -12,7 +12,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('spec/spec_helper.rb')
   watch('test/test_helper.rb')
   watch(%r{^spec/support/.+\.rb$})
-  watch('config/locales/en.yml')
+  watch('config/locales/ir.yml')
   watch('spec/factories.rb')
 end
 

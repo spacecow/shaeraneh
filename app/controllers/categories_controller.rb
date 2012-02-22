@@ -1,11 +1,18 @@
 class CategoriesController < ApplicationController
   load_and_authorize_resource
+  skip_load_resource :only => :index
 
   def show
   end
 
   def index 
-    @category = params[:id] ? Category.find(params[:id]) : Category.new
+    if params[:id]
+      @category = Category.find(params[:id])
+      @categories = Category.where(["id NOT IN (?)",@category.subtree_ids])
+    else
+      @category = Category.new
+      @categories = Category.scoped
+    end
   end
 
   def create
@@ -22,7 +29,7 @@ class CategoriesController < ApplicationController
       @category.descendants.map(&:save)
       redirect_to categories_path, :notice => updated(:category)
     else
-      @categories = Category.scoped
+      @categories = Category.where(["id NOT IN (?)",@category.subtree_ids])
       render :index
     end
   end
