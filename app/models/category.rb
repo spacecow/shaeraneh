@@ -13,13 +13,17 @@ class Category < ActiveRecord::Base
   end
 
   class << self
+    def first_owner; owner.first end
+    def last_owner; owner.last end
+    def owner; Word end
+
     def separate(lang,*cats)
       cats.join('\\')
     end
 
     def token(s,a)
       if s =~ /^\d+$/
-        cat = find(s) if exists?(s)
+        cat = exists?(s) ? find(s) : create(name_ir:s)
       else
         cat = find_or_create_by_name_ir(s)
       end

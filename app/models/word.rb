@@ -45,6 +45,6 @@ class Word < ActiveRecord::Base
     def treed_category_token(s)
       a = s.split('\\')
       cat = Category.token(a.shift,a)
-      cat.id if cat
+      cat.id
     end
 end

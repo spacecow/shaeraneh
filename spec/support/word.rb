@@ -17,3 +17,8 @@ def create_word(s,*opt)
   end
   word
 end
+
+def fill_in_owner
+  visit new_word_path
+  fill_in 'Word',with:'dog'
+end
