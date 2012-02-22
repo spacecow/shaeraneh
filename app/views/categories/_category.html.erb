@@ -6,4 +6,5 @@
     <%= link_to jt(:edit), id:category.id if can? :edit, category %>
     <%= link_to jt(:del), category, :method => :delete, confirm:sure? if can? :destroy, category %>
   </div>
+  <br>
 </div>

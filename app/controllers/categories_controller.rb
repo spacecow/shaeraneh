@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
       @category = Category.new
       @categories = Category.scoped
     end
+    @category_hash = Category.scoped.arrange(:order => :names_depth_cache_ir)
   end
 
   def create
@@ -20,6 +21,7 @@ class CategoriesController < ApplicationController
       redirect_to categories_path, :notice => created(:category)
     else
       @categories = Category.scoped
+      @category_hash = Category.scoped.arrange(:order => :names_depth_cache_ir)
       render :index
     end
   end
@@ -30,6 +32,7 @@ class CategoriesController < ApplicationController
       redirect_to categories_path, :notice => updated(:category)
     else
       @categories = Category.where(["id NOT IN (?)",@category.subtree_ids])
+      @category_hash = Category.scoped.arrange(:order => :names_depth_cache_ir)
       render :index
     end
   end

@@ -11,6 +11,9 @@ describe "Site" do
       it "has a link to the words index" do
         site_nav.should have_link('Words')
       end
+      it "has a link to the categories index" do
+        site_nav.should have_link('Categories')
+      end
       it "has no link to the translations index" do
         site_nav.should_not have_link('Translations')
       end
