@@ -9,7 +9,7 @@
   </tr>
   <% sorted_unique_suffixes(@translations).each_with_index do |suffix,i| %>
     <tr>
-      <td><%= suffix %></td>
+      <td id="key"><%= suffix %></td>
       <% languages(@translations).each do |lang| %>
         <td id="<%= lang %>">
           <%= text_field_tag "#{lang}[#{i}][value]", translate_or_skip(suffix,lang) %>

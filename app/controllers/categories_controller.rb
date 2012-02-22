@@ -14,6 +14,11 @@ class CategoriesController < ApplicationController
       @categories = Category.scoped
     end
     @category_hash = Category.scoped.arrange(:order => :names_depth_cache_ir)
+
+    respond_to do |f|
+      f.html
+      f.json {render :json => Category.selected_path(params[:q]).map{|e| e.attributes.merge("name" => e.names_depth_cache_ir)}}
+    end
   end
 
   def create

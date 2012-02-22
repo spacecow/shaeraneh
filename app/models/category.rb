@@ -17,6 +17,9 @@ class Category < ActiveRecord::Base
     def last_owner; owner.last end
     def owner; Word end
 
+    def selected_path(search)
+      where('names_depth_cache_ir like ?',"%#{search}%")
+    end
     def separate(lang,*cats)
       cats.join('\\')
     end

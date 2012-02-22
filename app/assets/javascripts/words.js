@@ -9,6 +9,14 @@ $(function(){
     theme: "facebook"
   });
 
+  $("#word_category_tokens").tokenInput("/categories.json", {
+    crossDomain: false,
+    preventDuplicates: true,
+    allowCreation: true,
+    prePopulate: $("#word_category_tokens").data("pre"),
+    theme: "facebook"
+  });
+
 
   for(i=1; i<10; i++){
     $("li.hide").hide();
