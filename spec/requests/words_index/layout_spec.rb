@@ -27,17 +27,33 @@ describe "Words" do
       end
     end
 
-    context "member layout, with one word linked to a verse", focus:true do
+    context "member layout, with one word linked to a verse", solr:true, focus:true do
       before(:each) do
-        create_poem('cat on the roof')
-      end
-
-      it "", solr:true do
+        @poem = create_poem('cat on the roof')
         Sunspot.commit
         Factory(:word,name:"cat")
         visit words_path
-        p Lookup.all
-        divs_no('word').should be(1) 
+      end
+
+      it "has a lookups div for lookup" do
+        div('word',0).should have_div('lookups')
+      end
+
+      it "shows a lookup link to that word", solr:true do
+        div('lookups').divs_no('lookup').should be(1)
+      end
+
+      it "a lookup displays the verse" do
+        div('lookup',0).should have_content('cat on the roof')
+      end
+
+      it "displays the lookup word as a link" do
+        div('lookup',0).should have_link('cat')
+      end
+
+      it "the lookup word link is a link to that poem" do
+        div('lookup',0).click_link 'cat'
+        current_path.should eq poem_path(@poem) 
       end
     end
 

@@ -21,49 +21,73 @@ describe Word do
     end
 
     context "on create", solr:true do
+      before(:each){ Sunspot.commit }
+
       it "adds a lookup to the database" do
-        Sunspot.commit
         lambda do
           Factory(:word,name:"cat")
         end.should change(Lookup,:count).by(1)
       end
 
       it "adds an association to a verse" do
-        Sunspot.commit
         word = Factory(:word,name:'cat')
-        word.verses.should_not be_empty
         word.verses.should eq [Verse.last]
-        word.lookups.should_not be_empty
         word.lookups.should eq [Lookup.last]
       end
 
       it "sets the name in the lookup" do
-        Sunspot.commit
         Factory(:word,name:"cat")
         Lookup.last.name.should eq 'cat'
       end 
     end
 
-    it "adds a lookup to the database on update", solr:true do
-      Sunspot.commit
-      lambda do
+    context "on update", solr:true do
+      before(:each) do
         @word = Factory(:word,name:"dog")
-      end.should change(Lookup,:count).by(0)
-      lambda do
+        Sunspot.commit
+      end
+
+      it "adds a lookup to the database" do
+        lambda{ @word.update_attribute(:name,'cat')
+        }.should change(Lookup,:count).by(1)
+      end
+
+      it "adds an association to a verse" do
         @word.update_attribute(:name,'cat')
-      end.should change(Lookup,:count).by(1)
+        Word.last.verses.should eq [Verse.last]
+        Word.last.lookups.should eq [Lookup.last]
+      end
+
+      it "sets the name in the lookup" do
+        @word.update_attribute(:name,'cat')
+        Lookup.last.name.should eq 'cat'
+      end 
     end
 
-    it "adds a lookup to the database on create/update", solr:true, focus:true do
-      Sunspot.commit
-      lambda do
-        @word = Factory(:word,name:"cat")
-      end.should change(Lookup,:count).by(1)
-      Sunspot.commit
-      lambda do
+    context "create/update", solr:true do
+      before(:each) do
+        Sunspot.commit
+        lambda do
+          @word = Factory(:word,name:"cat")
+        end.should change(Lookup,:count).by(1)
+        Sunspot.commit
+      end
+
+      it "replaces the lookup in the database" do
+        lambda{ @word.update_attribute(:name,'roof')
+        }.should change(Lookup,:count).by(0)
+      end
+
+      it "adds an association to a verse" do
         @word.update_attribute(:name,'roof')
-      end.should change(Lookup,:count).by(1)
-      @word.verses.length.should be(1)
+        Word.last.verses.should eq [Verse.last]
+        Word.last.lookups.should eq [Lookup.last]
+      end
+
+      it "sets the name in the lookup" do
+        @word.update_attribute(:name,'roof')
+        Lookup.last.name.should eq 'roof'
+      end 
     end
   end
 end

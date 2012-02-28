@@ -1,9 +1,12 @@
 .bundle
 db/*.sqlite3
 log/*.log
+log/*.sql
 tmp/
 .sass-cache/
 config/database.yml
 *.swp
 solr/data/test/
+solr/pids
 log/sunspot-solr-development.log.lck
+log/sunspot-solr-test.log.lck

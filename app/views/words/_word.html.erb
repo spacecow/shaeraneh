@@ -1,20 +1,23 @@
 <div class="word">
-  <div id="word">
-    <div id="base">
-      <% if can? :edit, word %>
-        <%= link_to word.name, edit_word_path(word) %>
-      <% else %>
-        <%= word.name %>
+  <div id="upper_half">
+    <div id="word">
+      <div id="base">
+        <% if can? :edit, word %>
+          <%= link_to word.name, edit_word_path(word) %>
+        <% else %>
+          <%= word.name %>
+        <% end %>
+      </div>
+      <div id="forms">
+        <%= render word.forms %>
+      </div>
+    </div>
+    <div id="definitions">
+      <% word.definitions.each_with_index do |definition,i| %>
+        <%= render definition, i:i+1 %>
       <% end %>
     </div>
-    <div id="forms">
-      <%= render word.forms %>
-    </div>
   </div>
-  <div id="definitions">
-    <% word.definitions.each_with_index do |definition,i| %>
-      <%= render definition, i:i+1 %>
-    <% end %>
-  </div>
+  <%= render 'lookups', lookups:word.lookups %>
 </div>
 <div class="clear"></div>

@@ -48,12 +48,9 @@ class Word < ActiveRecord::Base
       arr = self.forms.map(&:name)
       arr << self.name
       self.lookups.destroy_all
-      self.verses = []
       arr.each do |s|
         search = Verse.lookup(s)
-        p Lookup.count
         search.results.each{|verse| self.lookups << Lookup.create(verse_id:verse.id, name:s) }
-        p Lookup.count
       end
     end
 
