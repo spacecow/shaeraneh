@@ -20,7 +20,7 @@ class WordsController < ApplicationController
   
   def create
     if @word.save
-      create_links(@word)
+      #create_links(@word)
       redirect_to new_word_path, :notice => created(:word)
     else
       (10-@word.definitions.length).times do

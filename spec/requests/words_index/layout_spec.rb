@@ -27,6 +27,20 @@ describe "Words" do
       end
     end
 
+    context "member layout, with one word linked to a verse", focus:true do
+      before(:each) do
+        create_poem('cat on the roof')
+      end
+
+      it "", solr:true do
+        Sunspot.commit
+        Factory(:word,name:"cat")
+        visit words_path
+        p Lookup.all
+        divs_no('word').should be(1) 
+      end
+    end
+
     context "member layout, with one word, one definition" do
       before(:each) do
         create_word("cat","is an animal")

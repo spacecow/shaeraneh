@@ -14,6 +14,8 @@ class Word < ActiveRecord::Base
   attr_reader :form_tokens, :category_tokens
   attr_accessible :name,:definitions_attributes,:form_tokens,:category_tokens
 
+  before_save :set_links
+
   validates :name, presence:true, uniqueness:true
 
   def category_tokens=(a)
@@ -41,6 +43,19 @@ class Word < ActiveRecord::Base
   end
 
   private
+    
+    def set_links
+      arr = self.forms.map(&:name)
+      arr << self.name
+      self.lookups.destroy_all
+      self.verses = []
+      arr.each do |s|
+        search = Verse.lookup(s)
+        p Lookup.count
+        search.results.each{|verse| self.lookups << Lookup.create(verse_id:verse.id, name:s) }
+        p Lookup.count
+      end
+    end
 
     def treed_category_token(s)
       a = s.split('\\')
