@@ -6,6 +6,7 @@ tmp/
 .sass-cache/
 config/database.yml
 *.swp
+*.swo
 solr/data/test/
 solr/pids
 solr/data/development
