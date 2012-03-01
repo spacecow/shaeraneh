@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     can [:create,:signup_confirmation], User
     can [:index,:show], Poem
-    can :index, Word
+    can [:show,:index], Word
     can [:show,:index], Source
     can [:show,:index], Category
     if user

@@ -10,8 +10,13 @@ describe "Words" do
         visit words_path
       end
 
-      it "link to the edit page" do
+      it "link to the show page" do
         div('word',0).click_link 'cat'
+        current_path.should eq word_path(@cat)
+      end
+
+      it "link to the edit page" do
+        div('word',0).click_link 'Edit'
         current_path.should eq edit_word_path(@cat)
       end
     end

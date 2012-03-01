@@ -12,18 +12,32 @@ describe "Words" do
       it "has a div for words" do
         page.should have_div('words')
       end
-    end #layout, without words
+    end
 
-    context "admin layout" do
+    context "member layout, with words" do
       before(:each) do
-        create_admin(:email=>'admin@example.com')
-        login('admin@example.com')
         create_word("cat","is an animal")
         visit words_path
       end
 
       it "the word is a link" do
         div('word',0).should have_link('cat')
+      end
+
+      it "does not have an edit link" do
+        div('word',0).should_not have_link('Edit')
+      end
+    end #layout, without words
+
+    context "admin layout" do
+      before(:each) do
+        login_admin
+        create_word("cat","is an animal")
+        visit words_path
+      end
+
+      it "does have an edit link" do
+        div('word',0).should have_link('Edit')
       end
     end
 

@@ -14,6 +14,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch(%r{^spec/support/.+\.rb$})
   watch('config/locales/ir.yml')
   watch('spec/factories.rb')
+  watch('app/model/ability.rb')
 end
 
 guard 'rspec', :version => 2, :cli => "--format nested --drb --fail-fast", :all_after_pass => false, :all_on_start => false, :keep_failed => true do

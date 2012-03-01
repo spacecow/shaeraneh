@@ -2,11 +2,7 @@
   <div id="upper_half">
     <div id="word">
       <div id="base">
-        <% if can? :edit, word %>
-          <%= link_to word.name, edit_word_path(word) %>
-        <% else %>
-          <%= word.name %>
-        <% end %>
+        <%= link_to word.name, word_path(word) %>
       </div>
       <div id="forms">
         <%= render word.forms %>
@@ -17,7 +13,11 @@
         <%= render definition, i:i+1 %>
       <% end %>
     </div>
+    <div class="clear"></div>
   </div>
   <%= render 'words/lookups', lookups:word.lookups %>
+  <div id="actions">
+    <%= link_to t(:edit), edit_word_path(word) if can? :edit, word %>
+  </div>
 </div>
 <div class="clear"></div>

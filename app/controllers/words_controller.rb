@@ -1,6 +1,9 @@
 class WordsController < ApplicationController
   load_and_authorize_resource
 
+  def show
+  end
+
   def index
     respond_to do |f|
       f.html
@@ -40,15 +43,6 @@ class WordsController < ApplicationController
   end
   
   private
-
-    def create_links(word)
-      arr = word.forms.map(&:name)
-      arr << word.name
-      arr.each do |s|
-        search = Verse.lookup(s)
-        word.verses << search.results
-      end
-    end
 
     def add_definition_field(i)
       i.times do

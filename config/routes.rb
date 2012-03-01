@@ -19,7 +19,7 @@ Shaeraneh::Application.routes.draw do
     end
   end
 
-  resources :words, :only => [:index,:new,:create,:edit,:update]
+  resources :words, :only => [:show,:index,:new,:create,:edit,:update]
   resources :poems do
     collection do
       get 'detailed'
