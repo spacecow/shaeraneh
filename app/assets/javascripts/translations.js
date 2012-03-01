@@ -1,9 +1,9 @@
 $(function() {
-  $("#translation_locale_token").tokenInput("/locales.json", {
+  var key = "#translation_locale_token"
+  $(key).tokenInput($(key).data("url"), {
     crossDomain: false,
     allowCreation: true,
     tokenLimit: 1,
-    prePopulate: $("#translation_locale_token").data("pre"),
     theme: ""
   });
 });

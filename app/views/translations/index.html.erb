@@ -7,6 +7,6 @@
 <%= semantic_form_for @translation do |f| %>
   <%= f.input :key %>
   <%= f.input :value %>
-  <%= f.input :locale_token, :label => ft(:locale) %>
+  <%= f.input :locale_token, :label => ft(:locale), :input_html => {"data-url" => locales_path(:format=>:json)} %>
   <%= f.submit create(:translation), :class => :submit %>
 <% end %>
