@@ -7,5 +7,5 @@
 </li>
 <li id="source_<%= i %>" class="<%= definition.hide ? 'hide' : '' %>">
   <%= f.label :source_token, ft(:source) %>
-  <%= f.text_field :source_token, "data-pre" => definition.source_attributes %>
+  <%= f.text_field :source_token, "data-pre" => definition.source_attributes, "data-url" => sources_path(:format=>:json) %>
 </li>

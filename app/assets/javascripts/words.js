@@ -9,11 +9,10 @@ $(function(){
     theme: "facebook"
   });
 
-  $("#word_category_tokens").tokenInput("/categories.json", {
+  $("#word_category_tokens").tokenInput($("#word_category_tokens").data("url"), {
     crossDomain: false,
     preventDuplicates: true,
     allowCreation: true,
-    prePopulate: $("#word_category_tokens").data("pre"),
     theme: "facebook"
   });
 
@@ -25,7 +24,7 @@ $(function(){
 
   for(i=0; i<10; i++){
     var source_id = "#word_definitions_attributes_"+i+"_source_token";
-    $(source_id).tokenInput("/sources.json", {
+    $(source_id).tokenInput($(source_id).data("url"), {
       crossDomain: false,
       allowCreation: true,
       tokenLimit: 1,

@@ -7,6 +7,6 @@
     <% end %>
   <% end %>
   <%= link_to add(:definition), nil, remote:true, id:'add_definition' %>
-  <%= f.input :category_tokens, :label => pl(:category,1), :input_html => {"data-pre" => @word.categories.map{|e| e.attributes.merge("name" => e.names_depth_cache_ir)}.to_json} %>
+  <%= f.input :category_tokens, :label => pl(:category,1), :input_html => {"data-pre" => @word.categories.map{|e| e.attributes.merge("name" => e.names_depth_cache_ir)}.to_json, "data-url" => categories_path(:format=>:json)} %>
   <%= submit f,@word %>
 <% end %>

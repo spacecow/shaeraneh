@@ -22,6 +22,10 @@ describe "Words" do
         value('Definition').should eq 'has a tail'
       end
 
+      it "there are then definition fields" do
+        lis_no(:content).should be(10)
+      end
+
       it "has an update button" do
         page.should have_button('Update Word') 
       end

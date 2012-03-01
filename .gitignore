@@ -8,5 +8,6 @@ config/database.yml
 *.swp
 solr/data/test/
 solr/pids
+solr/data/development
 log/sunspot-solr-development.log.lck
 log/sunspot-solr-test.log.lck

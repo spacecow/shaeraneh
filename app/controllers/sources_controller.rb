@@ -7,10 +7,6 @@ class SourcesController < ApplicationController
 
   def index
     @source = params[:id] ? Source.find(params[:id]) : Source.new
-    respond_to do |f|
-      f.html
-      f.json {render :json => @sources.map(&:attributes)}
-    end
   end
 
   def create

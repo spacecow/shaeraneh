@@ -14,6 +14,7 @@ gem 'email_spec'
 gem 'ancestry'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'progress_bar'
+gem 'rabl'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

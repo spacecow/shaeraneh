@@ -3,6 +3,7 @@ class Definition < ActiveRecord::Base
   belongs_to :source
 
   attr_accessor :source_token, :hide
+  attr_accessible :source_token, :hide, :content
 
   def source_attributes
     [source.attributes].to_json if source

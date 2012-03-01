@@ -27,7 +27,7 @@ describe "Words" do
       end
     end
 
-    context "member layout, with one word linked to a verse", solr:true, focus:true do
+    context "member layout, with one word linked to a verse", solr:true do
       before(:each) do
         @poem = create_poem('cat on the roof')
         Sunspot.commit

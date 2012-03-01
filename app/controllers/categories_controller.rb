@@ -11,14 +11,9 @@ class CategoriesController < ApplicationController
       @categories = Category.where(["id NOT IN (?)",@category.subtree_ids])
     else
       @category = Category.new
-      @categories = Category.scoped
+      @categories = Category.selected_path(params[:q])
     end
     @category_hash = Category.scoped.arrange(:order => :names_depth_cache_ir)
-
-    respond_to do |f|
-      f.html
-      f.json {render :json => Category.selected_path(params[:q]).map{|e| e.attributes.merge("name" => e.names_depth_cache_ir)}}
-    end
   end
 
   def create
