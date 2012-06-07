@@ -25,9 +25,7 @@ class User < ActiveRecord::Base
   class << self
     def authenticate(login,password)
       user = find_by_email(login)
-      if user && user.password_hash == BCrypt::Engine.hash_secret(password,user.password_salt)
-        user
-      end
+      return user if user && user.password_hash == BCrypt::Engine.hash_secret(password,user.password_salt)
     end
 
     def role(s) 2**ROLES.index(s.to_s) end
