@@ -4,7 +4,7 @@
   <tr>
     <th><%= ft(:key) %></th>
     <% languages(@translations).each do |lang| %>
-      <th><%= t(lang) %></th>
+      <th><%= jt(lang) %></th>
     <% end %>
   </tr>
   <% sorted_unique_suffixes(@translations).each_with_index do |suffix,i| %>

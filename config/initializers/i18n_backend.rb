@@ -1,6 +1,6 @@
 DATABASES = {
-  "development" => 0,
-  "test" => 1,
+  "development" => 2,
+  "test" => 2,
   "production" => 2
 }
 

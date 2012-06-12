@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
+  has_one :signup_token
+
   before_create :set_role
   before_save :encrypt_password
-  has_one :signup_token
   
   attr_accessor :password
 
