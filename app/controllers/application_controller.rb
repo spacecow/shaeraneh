@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include BasicApplicationController
-  helper_method :pl, :jt, :current_user
+  helper_method :pl, :jt, :current_user, :mess
 
   protect_from_forgery
 
