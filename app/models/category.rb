@@ -9,7 +9,8 @@ class Category < ActiveRecord::Base
   has_ancestry :orphan_strategy => :rootify
 
   def name(lang)
-    send "name_#{lang}" 
+    #send "name_#{lang}" 
+    name_ir
   end
 
   class << self

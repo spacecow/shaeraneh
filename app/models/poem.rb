@@ -10,6 +10,8 @@ class Poem < ActiveRecord::Base
 
   before_save :set_links
 
+  INITIAL_MAPPING = Hash["ب", "ب ت ث", "ت", "ب ت ث", "ث", "ب ت ث"]
+
   def content=(s)
     s.split("\r\n").map{|e| e.split("\t\t")}.flatten.each_with_index do |verse,i|
       verses << Verse.create!(:content=>verse.strip,:pos=>i)
@@ -18,11 +20,14 @@ class Poem < ActiveRecord::Base
 
   def last_letter
     return "" if first_verse.blank?
+    key = ""
     i = -1
     while ["!","؟"," ",":","»"].include?(first_verse[i])
       i -= 1
     end
-    first_verse[i]
+    key = first_verse[i]
+    return INITIAL_MAPPING[key] if INITIAL_MAPPING.has_key?(key)
+    key
   end
 
   private

@@ -1,7 +1,6 @@
 class PoemsController < ApplicationController
   load_and_authorize_resource
   skip_load_resource :only => [:index,:detailed]
-  
 
   def show
     @verses = @poem.verses.order(:pos)

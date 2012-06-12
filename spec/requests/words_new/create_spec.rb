@@ -138,7 +138,7 @@ describe "Words" do
     end
 
     it "if two defintions are filled out, two are saved" do
-      li(:content,1).fill_in('Definition',with:'has a tail')
+      li_id(:content,1).fill_in('Definition',with:'has a tail')
       lambda do
         click_button 'Create Word'
       end.should change(Definition,:count).by(2)

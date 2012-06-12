@@ -1,6 +1,28 @@
+# -*- coding: utf-8 -*-
 require 'spec_helper'
 
 describe Poem do
+  describe "#after_add, persian", focus:true do
+    before(:each) do
+      @poem = Factory(:poem)
+    end
+
+    context "ب ت ث as inital for" do
+      it "ب" do
+        @poem.verses << create_verse("گفتم: «ای سلطان خوبان رحم کن بر این غریب»")
+      end
+      it "ت" do
+        @poem.verses << create_verse("آن پیکِ نامَور که رسید از دیار دوست")
+      end
+      it "ث" do
+        @poem.verses << create_verse("درد ما را نیست درمان الغیاث!")
+      end
+      after(:each) do
+        @poem.initial.should eq "ب ت ث"
+      end
+    end
+  end
+
   describe "#after_add" do
     before(:each) do
       @poem = Factory(:poem)
