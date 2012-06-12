@@ -55,7 +55,11 @@ class Word < ActiveRecord::Base
     end
 
     def treed_category_token(s)
-      a = s.split('\\')
+      if I18n.locale == :en
+        a = s.split('/')
+      else
+        a = s.split('\\')
+      end
       cat = Category.token(a.shift,a)
       cat.id
     end
