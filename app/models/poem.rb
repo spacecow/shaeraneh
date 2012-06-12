@@ -4,8 +4,11 @@ class Poem < ActiveRecord::Base
 
   has_many :verses, :after_add => :add_first_verse_content, :after_remove => :remove_first_verse_content, :dependent => :destroy
   accepts_nested_attributes_for :verses
+
   attr_accessible :content,:verses_attributes
   attr_accessor :content
+
+  before_save :set_links
 
   def content=(s)
     s.split("\r\n").map{|e| e.split("\t\t")}.flatten.each_with_index do |verse,i|
@@ -38,6 +41,9 @@ class Poem < ActiveRecord::Base
     end
     def set_initial
       update_attribute(:initial,last_letter)
+    end
+
+    def set_links
     end
 
     def remove_first_verse_content(verse)
