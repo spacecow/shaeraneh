@@ -2,7 +2,7 @@
   <tr>
     <th><%= letter %></th>
   </tr>
-  <% group.each do |poem| %>
+  <% group.sort.each do |poem| %>
     <tr>
       <td><%= link_to poem.first_verse, poem %></td>
       <td id="actions">

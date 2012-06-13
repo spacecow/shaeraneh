@@ -1,5 +1,5 @@
 <div id="poemgroups">
-<% poemgroups.each do |letter,group| %>
-  <%= render 'poemtable', letter:letter, group:group %>
+<% poemgroups.keys.sort.each do |letter| %>
+  <%= render 'poemtable', letter:letter, group:poemgroups[letter] %>
 <% end %>
 </div>

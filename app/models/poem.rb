@@ -10,7 +10,12 @@ class Poem < ActiveRecord::Base
 
   before_save :set_links
 
-  INITIAL_MAPPING = Hash["ب", "ب ت ث", "ت", "ب ت ث", "ث", "ب ت ث"]
+  INITIAL_MAPPING = Hash["ب", "ب ت ث", "ت", "ب ت ث", "ث", "ب ت ث",
+                         "ج", "ج ح خ", "ح", "ج ح خ", "خ", "ج ح خ",
+                         "ر", "ر ز",   "ز", "ر ز",
+                         "س", "س ش",   "ش", "س ش",
+                         "ع", "ع غ",   "غ", "ع غ",
+                         "ف", "ف ق",   "ق", "ف ق"]
 
   def content=(s)
     s.split("\r\n").map{|e| e.split("\t\t")}.flatten.each_with_index do |verse,i|
@@ -30,6 +35,14 @@ class Poem < ActiveRecord::Base
     key
   end
 
+  def set_initial
+    update_attribute(:initial,last_letter)
+  end
+
+  class << self
+    def set_initials; Poem.all.map(&:set_initial) end 
+  end
+
   private
 
     def add_first_verse_content(verse)
@@ -43,9 +56,6 @@ class Poem < ActiveRecord::Base
 
     def set_first_verse_content(s)
       update_attribute(:first_verse,s) 
-    end
-    def set_initial
-      update_attribute(:initial,last_letter)
     end
 
     def set_links

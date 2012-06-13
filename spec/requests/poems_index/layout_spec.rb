@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 describe "Poems, index:" do
   context "member layout without poems" do
     before(:each){ visit poems_path } 
@@ -51,6 +52,58 @@ describe "Poems, index:" do
 
     it "has no delete link" do
       table(:poemgroup,0).should_not have_link('Del')
+    end
+  end
+
+  context "sort poems", focus:true do
+    it "" do
+      create_poem("ألا یا أیها السّاقی! أدر کأساً وناوِلها!")
+      create_poem("گفتم: «ای سلطان خوبان رحم کن بر این غریب»")
+      create_poem("آن پیکِ نامَور که رسید از دیار دوست")
+      create_poem("درد ما را نیست درمان الغیاث!")
+      create_poem("تویی که بر سر خوبان کشوری چون تاج")
+      create_poem("اگر به مذهب تو خون عاشق است مباح")
+      create_poem("دل من در هوای روی فرخ")
+      create_poem("آن کس که به دست جام دارد")
+      create_poem("الا ای طوطی گویای اسرار")
+      create_poem("ای سرو ناز حسن که خوش می‌روی به ناز")
+      create_poem("ای صبا گر بگذری بر ساحل رود ارس")
+      create_poem("اگر رفیق شفیقی درست پیمان باش")
+      create_poem("بامدادان که ز خلوتگه کاخ ابداع")
+      create_poem("سحر به بوی گلستان دمی شدم در باغ")
+      create_poem("طالع اگر مدد دهد، دامنش آورم به کف")
+      create_poem("زبان خامه ندارد سر بیان فراق")
+      create_poem("اگر شراب خوری جرعه‌ای فشان بر خاک")
+      create_poem("اگر به کوی تو باشد مرا مجال وصول")
+      create_poem("آن که پامال جفا کرد چو خاک راهم")
+      create_poem("احمد الله علی معدله السلطان")
+      create_poem("ای آفتاب آینه دار جمال تو")
+      create_poem("از خون دل نوشتم نزدیک دوست نامه")
+      create_poem("آن غالیه‌خط گر سوی ما نامه نوشتی")
+      visit poems_path
+      tablecell(0,0,nil,0).should eq "ألا یا أیها السّاقی! أدر کأساً وناوِلها!"
+      tablecell(0,0,nil,1).should eq "گفتم: «ای سلطان خوبان رحم کن بر این غریب»"
+      tablecell(1,0,nil,1).should eq "آن پیکِ نامَور که رسید از دیار دوست"
+      tablecell(2,0,nil,1).should eq "درد ما را نیست درمان الغیاث!"
+      tablecell(0,0,nil,2).should eq "تویی که بر سر خوبان کشوری چون تاج"
+      tablecell(0,0,nil,2).should eq "اگر به مذهب تو خون عاشق است مباح"
+      tablecell(0,0,nil,2).should eq "دل من در هوای روی فرخ"
+      tablecell(0,0).should eq "آن کس که به دست جام دارد"
+      tablecell(0,0).should eq "الا ای طوطی گویای اسرار"
+      tablecell(0,0).should eq "ای سرو ناز حسن که خوش می‌روی به ناز"
+      tablecell(0,0).should eq "ای صبا گر بگذری بر ساحل رود ارس"
+      tablecell(0,0).should eq "اگر رفیق شفیقی درست پیمان باش"
+      tablecell(0,0).should eq "بامدادان که ز خلوتگه کاخ ابداع"
+      tablecell(0,0).should eq "سحر به بوی گلستان دمی شدم در باغ"
+      tablecell(0,0).should eq "طالع اگر مدد دهد، دامنش آورم به کف"
+      tablecell(0,0).should eq "زبان خامه ندارد سر بیان فراق"
+      tablecell(0,0).should eq "اگر شراب خوری جرعه‌ای فشان بر خاک"
+      tablecell(0,0).should eq "اگر به کوی تو باشد مرا مجال وصول"
+      tablecell(0,0).should eq "آن که پامال جفا کرد چو خاک راهم"
+      tablecell(0,0).should eq "احمد الله علی معدله السلطان"
+      tablecell(0,0).should eq "ای آفتاب آینه دار جمال تو"
+      tablecell(0,0).should eq "از خون دل نوشتم نزدیک دوست نامه"
+      tablecell(0,0).should eq "آن غالیه‌خط گر سوی ما نامه نوشتی"
     end
   end
 

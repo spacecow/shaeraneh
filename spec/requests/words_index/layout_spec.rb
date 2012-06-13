@@ -57,8 +57,7 @@ describe "Words" do
         div('lookups').divs_no('lookup').should be(1)
       end
 
-      it "a lookup displays the verse", focus:true do
-        save_and_open_page
+      it "a lookup displays the verse" do
         div('lookup',0).should have_content('cat on the roof')
       end
 
