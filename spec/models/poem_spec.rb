@@ -126,14 +126,14 @@ describe Poem do
       @poem.initial.should eq "ن"
     end
 
-    it "و as initial for و" do
-      @poem.verses << create_verse("ای آفتاب آینه دار جمال تو")
-      @poem.initial.should eq "و"
-    end
-
     it "ه as initial for ه" do
       @poem.verses << create_verse("از خون دل نوشتم نزدیک دوست نامه")
       @poem.initial.should eq "ه"
+    end
+
+    it "و as initial for و" do
+      @poem.verses << create_verse("ای آفتاب آینه دار جمال تو")
+      @poem.initial.should eq "و"
     end
 
     it "ی as initial for ی" do

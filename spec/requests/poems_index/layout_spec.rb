@@ -55,7 +55,7 @@ describe "Poems, index:" do
     end
   end
 
-  context "sort poems", focus:true do
+  context "sort poems" do
     it "" do
       create_poem("ألا یا أیها السّاقی! أدر کأساً وناوِلها!")
       create_poem("گفتم: «ای سلطان خوبان رحم کن بر این غریب»")
@@ -86,24 +86,24 @@ describe "Poems, index:" do
       tablecell(1,0,nil,1).should eq "آن پیکِ نامَور که رسید از دیار دوست"
       tablecell(2,0,nil,1).should eq "درد ما را نیست درمان الغیاث!"
       tablecell(0,0,nil,2).should eq "تویی که بر سر خوبان کشوری چون تاج"
-      tablecell(0,0,nil,2).should eq "اگر به مذهب تو خون عاشق است مباح"
-      tablecell(0,0,nil,2).should eq "دل من در هوای روی فرخ"
-      tablecell(0,0).should eq "آن کس که به دست جام دارد"
-      tablecell(0,0).should eq "الا ای طوطی گویای اسرار"
-      tablecell(0,0).should eq "ای سرو ناز حسن که خوش می‌روی به ناز"
-      tablecell(0,0).should eq "ای صبا گر بگذری بر ساحل رود ارس"
-      tablecell(0,0).should eq "اگر رفیق شفیقی درست پیمان باش"
-      tablecell(0,0).should eq "بامدادان که ز خلوتگه کاخ ابداع"
-      tablecell(0,0).should eq "سحر به بوی گلستان دمی شدم در باغ"
-      tablecell(0,0).should eq "طالع اگر مدد دهد، دامنش آورم به کف"
-      tablecell(0,0).should eq "زبان خامه ندارد سر بیان فراق"
-      tablecell(0,0).should eq "اگر شراب خوری جرعه‌ای فشان بر خاک"
-      tablecell(0,0).should eq "اگر به کوی تو باشد مرا مجال وصول"
-      tablecell(0,0).should eq "آن که پامال جفا کرد چو خاک راهم"
-      tablecell(0,0).should eq "احمد الله علی معدله السلطان"
-      tablecell(0,0).should eq "ای آفتاب آینه دار جمال تو"
-      tablecell(0,0).should eq "از خون دل نوشتم نزدیک دوست نامه"
-      tablecell(0,0).should eq "آن غالیه‌خط گر سوی ما نامه نوشتی"
+      tablecell(1,0,nil,2).should eq "اگر به مذهب تو خون عاشق است مباح"
+      tablecell(2,0,nil,2).should eq "دل من در هوای روی فرخ"
+      tablecell(0,0,nil,3).should eq "آن کس که به دست جام دارد"
+      tablecell(0,0,nil,4).should eq "الا ای طوطی گویای اسرار"
+      tablecell(1,0,nil,4).should eq "ای سرو ناز حسن که خوش می‌روی به ناز"
+      tablecell(0,0,nil,5).should eq "ای صبا گر بگذری بر ساحل رود ارس"
+      tablecell(1,0,nil,5).should eq "اگر رفیق شفیقی درست پیمان باش"
+      tablecell(0,0,nil,6).should eq "بامدادان که ز خلوتگه کاخ ابداع"
+      tablecell(1,0,nil,6).should eq "سحر به بوی گلستان دمی شدم در باغ"
+      tablecell(0,0,nil,7).should eq "طالع اگر مدد دهد، دامنش آورم به کف"
+      tablecell(1,0,nil,7).should eq "زبان خامه ندارد سر بیان فراق"
+      tablecell(0,0,nil,8).should eq "اگر به کوی تو باشد مرا مجال وصول"
+      tablecell(0,0,nil,9).should eq "آن که پامال جفا کرد چو خاک راهم"
+      tablecell(0,0,nil,10).should eq "احمد الله علی معدله السلطان"
+      tablecell(0,0,nil,11).should eq "از خون دل نوشتم نزدیک دوست نامه"
+      tablecell(0,0,nil,12).should eq "ای آفتاب آینه دار جمال تو"
+      tablecell(0,0,nil,13).should eq "اگر شراب خوری جرعه‌ای فشان بر خاک"
+      tablecell(0,0,nil,14).should eq "آن غالیه‌خط گر سوی ما نامه نوشتی"
     end
   end
 
